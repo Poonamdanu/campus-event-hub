@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Eventora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/student-dashboard.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="events.html">Explore Events</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+
+    </header>
+
+
+    <main class="student-dashboard">
+
+        <!-- Welcome -->
+        <section class="student-welcome">
+
+            <div>
+                <span class="eyebrow">YOUR PERSONAL SPACE</span>
+
+                <h1>
+                    Welcome back, <span id="studentName">Student</span>!
+                </h1>
+
+                <p>
+                    Your campus journey continues here.
+                    Discover events, track registrations and celebrate achievements.
+                </p>
+            </div>
+
+            <a href="events.html" class="btn btn-primary">
+                + Explore Events
+            </a>
+
+        </section>
+
+
+        <!-- Dashboard Statistics -->
+        <section class="student-stats">
+
+            <article class="stat-card">
+                <span class="stat-icon">📅</span>
+                <div>
+                    <p>Registered Events</p>
+                    <h2 id="registeredCount">0</h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">🎯</span>
+                <div>
+                    <p>Upcoming Events</p>
+                    <h2 id="upcomingCount">0</h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">🏆</span>
+                <div>
+                    <p>Certificates</p>
+                    <h2 id="certificateCount">0</h2>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">⭐</span>
+                <div>
+                    <p>Achievements</p>
+                    <h2 id="achievementCount">0</h2>
+                </div>
+            </article>
+
+        </section>
+
+
+        <!-- Alerts -->
+        <section class="student-panel alerts-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">STAY INFORMED</span>
+                    <h2>Reminders & Alerts</h2>
+                </div>
+                <span class="panel-icon">🔔</span>
+            </div>
+
+            <div id="studentAlerts" class="alerts-list">
+
+                <div class="empty-state">
+                    <span>🔔</span>
+                    <p>Your event reminders will appear here.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Registered Events -->
+        <section class="student-panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <span class="eyebrow">YOUR SCHEDULE</span>
+                    <h2>My Registered Events</h2>
+                </div>
+
+                <a href="events.html" class="text-link">
+                    Find More Events →
+                </a>
+
+            </div>
+
+            <div id="registeredEvents" class="student-events">
+
+                <div class="empty-state">
+                    <span>📅</span>
+                    <h3>No registrations yet</h3>
+                    <p>
+                        Explore campus events and register for
+                        the ones you like.
+                    </p>
+                    <a href="events.html" class="btn btn-primary">
+                        Explore Events
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Recommended Events -->
+        <section class="student-panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <span class="eyebrow">PICKED FOR YOU</span>
+                    <h2>Recommended Events</h2>
+                </div>
+
+                <a href="events.html" class="text-link">
+                    Explore All →
+                </a>
+
+            </div>
+
+            <div id="recommendedEvents" class="recommended-grid">
+
+                <div class="empty-state">
+                    <span>✨</span>
+                    <p>Recommended events will appear here.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Smart Schedule -->
+        <section class="student-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">SMART PLANNING</span>
+                    <h2>Schedule Conflict Alerts</h2>
+                </div>
+                <span class="panel-icon">⚠️</span>
+            </div>
+
+            <div id="scheduleConflicts">
+
+                <div class="empty-state">
+                    <span>🗓️</span>
+                    <p>
+                        Register for events to check whether
+                        their schedules overlap.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Achievements and Certificates -->
+        <section class="student-bottom-grid">
+
+            <div class="student-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <span class="eyebrow">YOUR MILESTONES</span>
+                        <h2>Achievements</h2>
+                    </div>
+                    <span class="panel-icon">🏆</span>
+                </div>
+
+                <div id="studentAchievements">
+
+                    <div class="achievement-item">
+                        <span>🌟</span>
+                        <div>
+                            <h3>Campus Explorer</h3>
+                            <p>Start discovering campus events.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="student-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <span class="eyebrow">YOUR RECORDS</span>
+                        <h2>Certificates</h2>
+                    </div>
+                    <span class="panel-icon">📜</span>
+                </div>
+
+                <div id="studentCertificates">
+
+                    <div class="empty-state">
+                        <span>📜</span>
+                        <p>
+                            Certificates will appear here when
+                            eligible events are completed.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section class="student-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">QUICK ACCESS</span>
+                    <h2>More from Eventora</h2>
+                </div>
+            </div>
+
+            <div class="student-quick-actions">
+
+                <a href="team-finder.html" class="quick-action">
+                    <span>🤝</span>
+                    <div>
+                        <h3>Find Teammates</h3>
+                        <p>Meet students with similar interests.</p>
+                    </div>
+                    <span>→</span>
+                </a>
+
+                <a href="free-time-finder.html" class="quick-action">
+                    <span>⏰</span>
+                    <div>
+                        <h3>Free-Time Finder</h3>
+                        <p>Find events that fit your schedule.</p>
+                    </div>
+                    <span>→</span>
+                </a>
+
+                <a href="feedback.html" class="quick-action">
+                    <span>💬</span>
+                    <div>
+                        <h3>Feedback & Support</h3>
+                        <p>Share reviews or submit a complaint.</p>
+                    </div>
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <a href="../index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+
+        <p>Discover. Participate. Connect.</p>
+
+        <p class="copyright">
+            © 2026 Eventora. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+
