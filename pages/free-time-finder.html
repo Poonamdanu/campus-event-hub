@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Time Finder | Eventora</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="free-time-page">
+
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="../index.html" class="logo">Eventora<span>.</span></a>
+
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="team-finder.html">Team Finder</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="free-time-container">
+
+        <section class="free-time-hero">
+            <span class="free-time-badge">⏰ YOUR TIME, YOUR OPPORTUNITY</span>
+
+            <h1>Make Your Free Time <span>Count</span></h1>
+
+            <p>
+                Enter your available time and discover campus events
+                that fit your schedule.
+            </p>
+        </section>
+
+        <section class="free-time-layout">
+
+            <div class="free-time-form-card">
+
+                <h2>Find Events in Your Free Time</h2>
+
+                <p class="free-time-subtitle">
+                    Tell us when you are available.
+                </p>
+
+                <form id="freeTimeForm">
+
+                    <label for="availableDate">Available Date</label>
+                    <input
+                        type="date"
+                        id="availableDate"
+                        required
+                    >
+
+                    <div class="free-time-input-row">
+
+                        <div>
+                            <label for="startTime">From</label>
+                            <input
+                                type="time"
+                                id="startTime"
+                                required
+                            >
+                        </div>
+
+                        <div>
+                            <label for="endTime">Until</label>
+                            <input
+                                type="time"
+                                id="endTime"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <label for="freeTimeCategory">Event Category</label>
+
+                    <select id="freeTimeCategory">
+                        <option value="all">All Categories</option>
+                        <option value="Technical">Technical</option>
+                        <option value="Cultural">Cultural</option>
+                        <option value="Workshop">Workshop</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Music">Music</option>
+                    </select>
+
+                    <button type="submit" class="free-time-submit">
+                        Find Matching Events →
+                    </button>
+
+                    <p id="freeTimeMessage" class="free-time-message"></p>
+
+                </form>
+
+            </div>
+
+            <div class="free-time-info-card">
+
+                <div class="free-time-icon">📅</div>
+
+                <h2>Plan Your Campus Life</h2>
+
+                <p>
+                    Don't miss exciting opportunities because of a busy schedule.
+                    Find events that match your availability.
+                </p>
+
+                <div class="free-time-benefit">
+                    <span>✓</span>
+                    <div>
+                        <h3>Smart Event Matching</h3>
+                        <p>Find events that fit your selected time.</p>
+                    </div>
+                </div>
+
+                <div class="free-time-benefit">
+                    <span>✓</span>
+                    <div>
+                        <h3>Category Filtering</h3>
+                        <p>Explore technical, cultural, sports and other events.</p>
+                    </div>
+                </div>
+
+                <div class="free-time-benefit">
+                    <span>✓</span>
+                    <div>
+                        <h3>Better Planning</h3>
+                        <p>Discover activities without wasting your free time.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="free-time-results-section">
+
+            <div class="free-time-results-heading">
+                <div>
+                    <h2>Matching Events</h2>
+                    <p id="matchingEventCount">
+                        Choose your available time to discover events.
+                    </p>
+                </div>
+            </div>
+
+            <div id="freeTimeResults" class="free-time-results"></div>
+
+            <div id="freeTimeEmpty" class="free-time-empty" hidden>
+                <h3>No Matching Events Found</h3>
+                <p>
+                    Try another date, time range or category.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="freeTimeYear"></span> Eventora. Your campus, your opportunities.</p>
+    </footer>
+
+    <script src="../js/free-time-finder.js"></script>
+
+</body>
+</html>
+
