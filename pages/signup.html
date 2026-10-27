@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | Eventora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="../index.html#dashboard-shortcuts">Dashboards</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+
+    </header>
+
+
+    <!-- Signup Section -->
+    <main class="auth-section">
+
+        <div class="auth-container">
+
+            <!-- Welcome Panel -->
+            <div class="auth-welcome">
+
+                <span class="eyebrow">JOIN THE COMMUNITY</span>
+
+                <h1>
+                    Your Next<br>
+                    Campus Story<br>
+                    <span>Starts Here.</span>
+                </h1>
+
+                <p>
+                    Create your Eventora account to discover campus
+                    events, meet teammates and explore new opportunities.
+                </p>
+
+                <div class="auth-benefits">
+
+                    <div class="auth-benefit">
+                        <span>✦</span>
+                        <p>Discover events that match your interests</p>
+                    </div>
+
+                    <div class="auth-benefit">
+                        <span>✦</span>
+                        <p>Manage registrations in one place</p>
+                    </div>
+
+                    <div class="auth-benefit">
+                        <span>✦</span>
+                        <p>Organize events and connect with students</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Signup Form -->
+            <div class="auth-form-card">
+
+                <div class="auth-heading">
+                    <h2>Create Account</h2>
+                    <p>Fill in your details to get started.</p>
+                </div>
+
+
+                <form id="signupForm">
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="signupEmail">College Email</label>
+
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            name="email"
+                            placeholder="you@college.edu"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="collegeName">College Name</label>
+
+                        <input
+                            type="text"
+                            id="collegeName"
+                            name="collegeName"
+                            placeholder="Enter your college name"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="collegeId">Student / Employee ID</label>
+
+                        <input
+                            type="text"
+                            id="collegeId"
+                            name="collegeId"
+                            placeholder="Enter your college ID"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="accountRole">Account Type</label>
+
+                        <select id="accountRole" name="role" required>
+                            <option value="student">Student</option>
+                            <option value="organizer">Event Organizer</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="signupPassword">Create Password</label>
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            name="password"
+                            placeholder="At least 8 characters"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Enter your password again"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-options">
+
+                        <label class="remember-option">
+                            <input type="checkbox" id="acceptTerms" required>
+                            <span>
+                                I agree to the terms and conditions.
+                            </span>
+                        </label>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="btn btn-primary auth-submit">
+                        Create My Account →
+                    </button>
+
+                    <p id="signupMessage"
+                       class="form-message"
+                       aria-live="polite"></p>
+
+                </form>
+
+
+                <div class="auth-divider">
+                    <span>ALREADY A MEMBER?</span>
+                </div>
+
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="login.html">Login</a>
+                </p>
+
+                <a href="../index.html" class="back-home">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <a href="../index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+
+        <p>Discover. Participate. Connect.</p>
+
+        <p class="copyright">
+            © 2026 Eventora. All rights reserved.
+        </p>
+
+    </footer>
+<script src="../JS/auth.js"></script>
+</body>
+</html>
