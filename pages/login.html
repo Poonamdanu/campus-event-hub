@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Eventora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="../index.html#dashboard-shortcuts">Dashboards</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+
+    </header>
+
+
+    <!-- Login Section -->
+    <main class="auth-section">
+
+        <div class="auth-container">
+
+            <!-- Left Information Panel -->
+            <div class="auth-welcome">
+
+                <span class="eyebrow">WELCOME BACK</span>
+
+                <h1>
+                    Your Campus.<br>
+                    Your <span>Community.</span>
+                </h1>
+
+                <p>
+                    Log in to discover campus events, manage
+                    registrations and connect with your community.
+                </p>
+
+                <div class="auth-benefits">
+
+                    <div class="auth-benefit">
+                        <span>✦</span>
+                        <p>Discover exciting campus events</p>
+                    </div>
+
+                    <div class="auth-benefit">
+                        <span>✦</span>
+                        <p>Manage your event registrations</p>
+                    </div>
+
+                    <div class="auth-benefit">
+                        <span>✦</span>
+                        <p>Stay updated with reminders</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Login Form -->
+            <div class="auth-form-card">
+
+                <div class="auth-heading">
+                    <h2>Welcome Back!</h2>
+                    <p>Enter your details to access Eventora.</p>
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-options">
+
+                        <label class="remember-option">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+
+                        <a href="#"
+                           id="forgotPassword"
+                           class="form-link">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="btn btn-primary auth-submit">
+                        Login to Eventora →
+                    </button>
+
+                    <p id="loginMessage"
+                       class="form-message"
+                       aria-live="polite"></p>
+
+                </form>
+
+
+                <div class="auth-divider">
+                    <span>NEW TO EVENTORA?</span>
+                </div>
+
+                <p class="auth-switch">
+                    Don't have an account?
+                    <a href="signup.html">Create Account</a>
+                </p>
+
+                <a href="../index.html" class="back-home">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <a href="../index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+
+        <p>Discover. Participate. Connect.</p>
+
+        <p class="copyright">
+            © 2026 Eventora. All rights reserved.
+        </p>
+
+    </footer>
+
+<script src="../JS/auth.js"></script>
+
+</body>
+</html>
+
