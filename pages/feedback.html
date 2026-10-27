@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback & Support | Eventora</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body class="feedback-page">
+
+  <header class="feedback-header">
+    <a href="../index.html" class="feedback-brand">
+      <span class="feedback-brand-icon">✦</span>
+      <span>Eventora</span>
+    </a>
+
+    <nav class="feedback-nav">
+      <a href="../index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="dashboard.html">Student Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="feedback-container">
+
+    <section class="feedback-hero">
+      <div>
+        <span class="feedback-eyebrow">YOUR VOICE MATTERS</span>
+        <h1>Feedback <span>& Support</span></h1>
+        <p>Help us make every campus event better. Share an idea, report an issue, or tell us what you loved.</p>
+      </div>
+      <div class="feedback-hero-icon">✦</div>
+    </section>
+
+    <section class="feedback-workspace">
+
+      <div class="feedback-form-card">
+        <div class="feedback-section-heading">
+          <span class="feedback-heading-icon">✎</span>
+          <div>
+            <h2>Share Your Feedback</h2>
+            <p>We’re listening. Tell us about your experience.</p>
+          </div>
+        </div>
+
+        <form id="feedbackForm" class="feedback-form">
+          <div class="feedback-field">
+            <label for="feedbackName">Your Name</label>
+            <input type="text" id="feedbackName" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="feedback-field">
+            <label for="feedbackEmail">College Email</label>
+            <input type="email" id="feedbackEmail" placeholder="you@college.edu" required>
+          </div>
+
+          <div class="feedback-field">
+            <label for="feedbackType">Feedback Type</label>
+            <select id="feedbackType" required>
+              <option value="">Choose a category</option>
+              <option value="Suggestion">💡 Suggestion</option>
+              <option value="Complaint">⚠️ Complaint</option>
+              <option value="Event Review">⭐ Event Review</option>
+              <option value="Technical Issue">🛠️ Technical Issue</option>
+              <option value="Appreciation">💜 Appreciation</option>
+            </select>
+          </div>
+
+          <div class="feedback-field">
+            <label for="feedbackEvent">Related Event <span>(Optional)</span></label>
+            <input type="text" id="feedbackEvent" placeholder="Which event is this about?">
+          </div>
+
+          <div class="feedback-field">
+            <label for="feedbackRating">Rate Your Experience <span>(Optional)</span></label>
+            <select id="feedbackRating">
+              <option value="">Choose a rating</option>
+              <option value="5">⭐⭐⭐⭐⭐ — Excellent</option>
+              <option value="4">⭐⭐⭐⭐ — Very Good</option>
+              <option value="3">⭐⭐⭐ — Good</option>
+              <option value="2">⭐⭐ — Needs Improvement</option>
+              <option value="1">⭐ — Poor</option>
+            </select>
+          </div>
+
+          <div class="feedback-field">
+            <label for="feedbackMessage">Your Message</label>
+            <textarea id="feedbackMessage" rows="5"
+              placeholder="Share your thoughts, suggestions, or the issue you faced..."
+              required></textarea>
+          </div>
+
+          <p id="feedbackFormMessage" class="feedback-form-message" aria-live="polite"></p>
+
+          <button type="submit" class="feedback-submit-btn">
+            Submit Feedback <span>→</span>
+          </button>
+          <p class="feedback-privacy-note">🔒 Your feedback is saved in this browser.</p>
+        </form>
+      </div>
+
+      <aside class="feedback-sidebar">
+        <div class="feedback-side-heading">
+          <span class="feedback-eyebrow">NEED INSPIRATION?</span>
+          <h2>Your feedback makes a difference</h2>
+          <p>Every response helps create a better campus experience.</p>
+        </div>
+
+        <article class="feedback-tip-card suggestion-tip">
+          <span class="feedback-tip-icon">💡</span>
+          <div>
+            <h3>Suggest an Idea</h3>
+            <p>Have an idea for a new feature or campus event? Share it with us.</p>
+          </div>
+        </article>
+
+        <article class="feedback-tip-card complaint-tip">
+          <span class="feedback-tip-icon">🛠️</span>
+          <div>
+            <h3>Report a Problem</h3>
+            <p>Tell us about event issues, incorrect information, or platform problems.</p>
+          </div>
+        </article>
+
+        <article class="feedback-tip-card review-tip">
+          <span class="feedback-tip-icon">⭐</span>
+          <div>
+            <h3>Review an Event</h3>
+            <p>Rate your experience and help other students discover great events.</p>
+          </div>
+        </article>
+
+        <div class="feedback-note-card">
+          <span>✦</span>
+          <div>
+            <h3>Before You Submit</h3>
+            <p>Give clear details so your feedback can be reviewed effectively.</p>
+          </div>
+        </div>
+      </aside>
+
+    </section>
+
+    <section class="feedback-analytics">
+      <div class="feedback-analytics-heading">
+        <div>
+          <span class="feedback-eyebrow">FEEDBACK INSIGHTS</span>
+          <h2>Feedback Analytics</h2>
+          <p>See what students are saying through simple visual reports.</p>
+        </div>
+        <span class="analytics-live-label"><span></span> Browser Data</span>
+      </div>
+
+      <div class="feedback-stats-grid">
+        <article class="feedback-stat-card stat-purple">
+          <div class="feedback-stat-top">
+            <span>Total Feedback</span>
+            <span class="feedback-stat-icon">▤</span>
+          </div>
+          <strong id="analyticsTotal">0</strong>
+          <small>All feedback entries</small>
+        </article>
+
+        <article class="feedback-stat-card stat-yellow">
+          <div class="feedback-stat-top">
+            <span>Average Rating</span>
+            <span class="feedback-stat-icon">★</span>
+          </div>
+          <strong id="analyticsAverage">N/A</strong>
+          <small>Out of 5 stars</small>
+        </article>
+
+        <article class="feedback-stat-card stat-pink">
+          <div class="feedback-stat-top">
+            <span>Submitted</span>
+            <span class="feedback-stat-icon">✓</span>
+          </div>
+          <strong id="analyticsSubmitted">0</strong>
+          <small>Awaiting review</small>
+        </article>
+
+        <article class="feedback-stat-card stat-blue">
+          <div class="feedback-stat-top">
+            <span>Categories Used</span>
+            <span class="feedback-stat-icon">▦</span>
+          </div>
+          <strong id="analyticsCategories">0</strong>
+          <small>Different feedback types</small>
+        </article>
+      </div>
+
+      <div class="feedback-charts-grid">
+
+        <article class="feedback-chart-card">
+          <div class="feedback-chart-heading">
+            <div class="chart-heading-icon purple-icon">▥</div>
+            <div>
+              <h3>Feedback by Category</h3>
+              <p>Which topics students report</p>
+            </div>
+          </div>
+          <div id="categoryChart" class="feedback-chart-plot">
+            <p class="feedback-chart-empty">Submit feedback to see the graph.</p>
+          </div>
+        </article>
+
+        <article class="feedback-chart-card">
+          <div class="feedback-chart-heading">
+            <div class="chart-heading-icon yellow-icon">★</div>
+            <div>
+              <h3>Star Rating Analysis</h3>
+              <p>Distribution of student ratings</p>
+            </div>
+          </div>
+          <div id="ratingChart" class="feedback-chart-plot">
+            <p class="feedback-chart-empty">Submit feedback to see the graph.</p>
+          </div>
+        </article>
+
+        <article class="feedback-chart-card">
+          <div class="feedback-chart-heading">
+            <div class="chart-heading-icon pink-icon">◷</div>
+            <div>
+              <h3>Feedback Status</h3>
+              <p>Progress of submissions</p>
+            </div>
+          </div>
+          <div id="statusChart" class="feedback-chart-plot">
+            <p class="feedback-chart-empty">Submit feedback to see the graph.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="feedback-analytics-footnote">
+        ⓘ Analytics update when feedback is submitted in this browser.
+      </p>
+    </section>
+
+    <section class="feedback-submissions">
+      <div class="feedback-submissions-heading">
+        <div>
+          <span class="feedback-eyebrow">YOUR SUBMISSIONS</span>
+          <h2>Recently Submitted Feedback</h2>
+          <p>Keep track of the feedback you have shared.</p>
+        </div>
+      </div>
+
+      <div id="myFeedbackList" class="feedback-submissions-list">
+        <div class="feedback-empty-state">
+          <span>✉</span>
+          <h3>No feedback yet</h3>
+          <p>Your submitted feedback will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="feedback-footer">
+    <span>✦ Eventora</span>
+    <p>Making every campus experience better.</p>
+  </footer>
+
+  <script src="../JS/feedback.js" defer></script>
+</body>
+</html>
