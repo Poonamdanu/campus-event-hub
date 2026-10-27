@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events Explorer | Eventora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/events.js" defer></script>
+
+    <style>
+        /* Calendar section */
+        .event-calendar-section {
+            padding: 35px 0 55px;
+        }
+
+        .calendar-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+            gap: 24px;
+            margin-top: 28px;
+            align-items: stretch;
+        }
+
+        .calendar-card,
+        .calendar-agenda {
+            background: linear-gradient(145deg, #191a2c, #11121f);
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 22px;
+            padding: 25px;
+            min-width: 0;
+        }
+
+        .calendar-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .calendar-topbar h3 {
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .calendar-navigation {
+            display: flex;
+            gap: 9px;
+        }
+
+        .calendar-navigation button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: white;
+            border-radius: 12px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .calendar-navigation button:hover {
+            background: #bd82f5;
+            color: #171323;
+        }
+
+        .calendar-weekdays,
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 7px;
+        }
+
+        .calendar-weekdays {
+            margin-bottom: 12px;
+        }
+
+        .calendar-weekdays span {
+            text-align: center;
+            color: #a8a8c2;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 0;
+        }
+
+        .calendar-day {
+            position: relative;
+            min-height: 64px;
+            border: 1px solid transparent;
+            background: rgba(255,255,255,0.035);
+            color: #f5f3ff;
+            border-radius: 12px;
+            font: inherit;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .calendar-day:hover {
+            border-color: #bd82f5;
+            background: rgba(189,130,245,0.13);
+        }
+
+        .calendar-day.other-month {
+            color: #62637d;
+            background: transparent;
+        }
+
+        .calendar-day.today {
+            border-color: #bd82f5;
+        }
+
+        .calendar-day.selected {
+            background: linear-gradient(135deg, #9b7bfa, #e18acb);
+            color: #171323;
+            font-weight: 800;
+        }
+
+        .calendar-day.has-event:not(.selected) {
+            background: rgba(189,130,245,0.10);
+        }
+
+        .calendar-event-dots {
+            display: flex;
+            gap: 4px;
+            min-height: 6px;
+            justify-content: center;
+        }
+
+        .calendar-event-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #d88af2;
+        }
+
+        .calendar-event-dot.cultural {
+            background: #ff9cba;
+        }
+
+        .calendar-event-dot.sports {
+            background: #65d9b4;
+        }
+
+        .calendar-event-dot.workshop {
+            background: #ffc56c;
+        }
+
+        .calendar-event-dot.music {
+            background: #8ab6ff;
+        }
+
+        .calendar-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 23px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.09);
+        }
+
+        .calendar-legend span {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            color: #b5b4cb;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d88af2;
+        }
+
+        .legend-dot.cultural {
+            background: #ff9cba;
+        }
+
+        .legend-dot.sports {
+            background: #65d9b4;
+        }
+
+        .legend-dot.workshop {
+            background: #ffc56c;
+        }
+
+        .calendar-agenda {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .agenda-heading {
+            padding-bottom: 19px;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+            margin-bottom: 18px;
+        }
+
+        .agenda-heading .eyebrow {
+            color: #d99af5;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+        }
+
+        .agenda-heading h3 {
+            font-size: 22px;
+            margin: 10px 0 5px;
+        }
+
+        .agenda-heading p {
+            color: #aaa9c2;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .agenda-list {
+            display: grid;
+            gap: 13px;
+        }
+
+        .agenda-event {
+            display: grid;
+            grid-template-columns: 46px minmax(0, 1fr);
+            gap: 13px;
+            padding: 15px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+        }
+
+        .agenda-event-date {
+            width: 46px;
+            height: 49px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(189,130,245,0.15);
+            border-radius: 12px;
+            color: #e3c0ff;
+        }
+
+        .agenda-event-date strong {
+            font-size: 19px;
+            line-height: 1.1;
+        }
+
+        .agenda-event-date span {
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .agenda-event-content {
+            min-width: 0;
+        }
+
+        .agenda-event-content h4 {
+            font-size: 14px;
+            margin: 2px 0 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .agenda-event-content p {
+            font-size: 12px;
+            color: #aaa9c2;
+            margin: 5px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .agenda-category {
+            display: inline-block;
+            font-size: 10px;
+            color: #e1b5ff;
+            background: rgba(189,130,245,0.12);
+            border-radius: 20px;
+            padding: 5px 9px;
+            margin-bottom: 7px;
+        }
+
+        .agenda-event-content button {
+            margin-top: 9px;
+            padding: 8px 12px;
+            border: 0;
+            border-radius: 9px;
+            color: white;
+            background: linear-gradient(135deg, #9b7bfa, #d881c6);
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .agenda-event-content button:hover {
+            opacity: 0.85;
+        }
+
+        .agenda-empty {
+            text-align: center;
+            padding: 35px 12px;
+            color: #aaa9c2;
+        }
+
+        .agenda-empty .empty-icon {
+            display: block;
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .agenda-empty h4 {
+            color: white;
+            margin: 0 0 8px;
+        }
+
+        .agenda-empty p {
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .calendar-search {
+            display: flex;
+            gap: 10px;
+            margin-top: 23px;
+        }
+
+        .calendar-search input,
+        .calendar-search select {
+            min-width: 0;
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 12px;
+            background: #202136;
+            color: white;
+            font: inherit;
+        }
+
+        .calendar-search input {
+            flex: 1.5;
+        }
+
+        .calendar-search select {
+            flex: 1;
+        }
+
+        .calendar-search option {
+            background: #202136;
+            color: white;
+        }
+
+        .calendar-search input:focus,
+        .calendar-search select:focus {
+            outline: 2px solid #bd82f5;
+            outline-offset: 2px;
+        }
+
+        .calendar-search input::placeholder {
+            color: #9292ad;
+        }
+
+        @media (max-width: 850px) {
+            .calendar-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-agenda {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .calendar-card,
+            .calendar-agenda {
+                padding: 15px;
+                border-radius: 16px;
+            }
+
+            .calendar-topbar h3 {
+                font-size: 18px;
+            }
+
+            .calendar-days,
+            .calendar-weekdays {
+                gap: 4px;
+            }
+
+            .calendar-day {
+                min-height: 48px;
+                border-radius: 8px;
+                font-size: 12px;
+                gap: 5px;
+            }
+
+            .calendar-event-dot {
+                width: 5px;
+                height: 5px;
+            }
+
+            .calendar-search {
+                flex-direction: column;
+            }
+
+            .calendar-legend {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="../index.html" class="logo">
+        <span class="logo-icon">✦</span>
+        <span>Eventora</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="../index.html#dashboard-shortcuts">Dashboards</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+    </div>
+</header>
+
+
+<main class="events-page">
+
+    <section class="events-hero">
+        <span class="eyebrow">DISCOVER YOUR NEXT EXPERIENCE</span>
+
+        <h1>Explore Campus <span>Events.</span></h1>
+
+        <p>
+            Find workshops, hackathons, cultural fests and
+            opportunities happening around your campus.
+        </p>
+
+        <form id="eventSearchForm" class="hero-search">
+            <input
+                type="search"
+                id="eventSearch"
+                placeholder="Search by event name, category or venue..."
+                aria-label="Search events"
+            >
+            <button type="submit" aria-label="Search">🔍</button>
+        </form>
+
+        <div class="events-shortcuts">
+            <a href="free-time-finder.html" class="btn btn-outline">
+                ⏰ Free-Time Finder
+            </a>
+
+            <a href="team-finder.html" class="btn btn-outline">
+                🤝 Find Teammates
+            </a>
+
+            <a href="dashboard.html" class="btn btn-outline">
+                🎓 Student Dashboard
+            </a>
+        </div>
+    </section>
+
+
+    <!-- NEW: Campus Event Calendar -->
+    <section class="section event-calendar-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">PLAN YOUR CAMPUS LIFE</span>
+                <h2>Campus Event <span>Calendar.</span></h2>
+                <p>Choose a date and discover what's happening on campus.</p>
+            </div>
+        </div>
+
+        <div class="calendar-search">
+            <input
+                type="search"
+                id="calendarSearch"
+                placeholder="Search event name, venue or organizer..."
+                aria-label="Search calendar events"
+            >
+
+            <select id="calendarCategory" aria-label="Filter events by category">
+                <option value="All">All Categories</option>
+                <option value="Technical">💻 Technical</option>
+                <option value="Cultural">🎭 Cultural</option>
+                <option value="Sports">⚽ Sports</option>
+                <option value="Workshop">🧠 Workshop</option>
+                <option value="Music">🎵 Music</option>
+                <option value="Other">✨ Other</option>
+            </select>
+        </div>
+
+        <div class="calendar-layout">
+
+            <!-- Monthly Calendar -->
+            <section class="calendar-card" aria-label="Monthly event calendar">
+
+                <div class="calendar-topbar">
+                    <h3 id="calendarMonthYear">October 2026</h3>
+
+                    <div class="calendar-navigation">
+                        <button type="button" id="calendarPrev" aria-label="Previous month">‹</button>
+                        <button type="button" id="calendarNext" aria-label="Next month">›</button>
+                    </div>
+                </div>
+
+                <div class="calendar-weekdays" aria-hidden="true">
+                    <span>MON</span>
+                    <span>TUE</span>
+                    <span>WED</span>
+                    <span>THU</span>
+                    <span>FRI</span>
+                    <span>SAT</span>
+                    <span>SUN</span>
+                </div>
+
+                <div class="calendar-days" id="calendarDays"></div>
+
+                <div class="calendar-legend">
+                    <span><i class="legend-dot"></i> Technical</span>
+                    <span><i class="legend-dot cultural"></i> Cultural</span>
+                    <span><i class="legend-dot sports"></i> Sports</span>
+                    <span><i class="legend-dot workshop"></i> Workshop</span>
+                </div>
+
+            </section>
+
+
+            <!-- Selected Date Agenda -->
+            <aside class="calendar-agenda">
+
+                <div class="agenda-heading">
+                    <span class="eyebrow">YOUR DAILY AGENDA</span>
+                    <h3 id="agendaSelectedDate">Select a date</h3>
+                    <p id="agendaEventCount">Explore events scheduled for this day.</p>
+                </div>
+
+                <div id="calendarAgendaList" class="agenda-list" aria-live="polite">
+                    <div class="agenda-empty">
+                        <span class="empty-icon">📅</span>
+                        <h4>Your campus schedule</h4>
+                        <p>Select a date on the calendar to see its events.</p>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+
+    <!-- Existing Event Explorer -->
+    <section class="section explorer-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">FIND YOUR INTEREST</span>
+                <h2>Browse <span>Events</span></h2>
+                <p>Filter events and discover your next opportunity.</p>
+            </div>
+
+            <span id="eventCount" class="event-count">Loading events...</span>
+        </div>
+
+        <div class="explorer-toolbar">
+
+            <div class="category-filters" id="categoryFilters">
+                <button type="button" class="filter-btn active" data-category="All">All Events</button>
+                <button type="button" class="filter-btn" data-category="Technical">💻 Technical</button>
+                <button type="button" class="filter-btn" data-category="Cultural">🎭 Cultural</button>
+                <button type="button" class="filter-btn" data-category="Sports">⚽ Sports</button>
+                <button type="button" class="filter-btn" data-category="Workshop">🧠 Workshops</button>
+                <button type="button" class="filter-btn" data-category="Music">🎵 Music</button>
+                <button type="button" class="filter-btn" data-category="Other">✨ Other</button>
+            </div>
+
+            <div class="explorer-options">
+                <label for="eventSort">Sort by</label>
+
+                <select id="eventSort">
+                    <option value="date">Upcoming first</option>
+                    <option value="name">Event name</option>
+                    <option value="category">Category</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div id="eventsGrid" class="events-grid explorer-grid"></div>
+
+        <div id="noEvents" class="empty-state" hidden>
+            <span>🔎</span>
+            <h3>No matching events found</h3>
+            <p>Try another search term or category.</p>
+            <button type="button" id="clearFilters" class="btn btn-primary">
+                Clear Filters
+            </button>
+        </div>
+
+    </section>
+
+
+    <section class="section smart-features-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">EXPLORE MORE</span>
+                <h2>Make Your Campus <span>Experience Better.</span></h2>
+            </div>
+        </div>
+
+        <div class="smart-features-grid">
+
+            <a href="free-time-finder.html" class="smart-feature-card">
+                <span>⏰</span>
+                <h3>Free-Time Finder</h3>
+                <p>Discover events that fit your available time.</p>
+            </a>
+
+            <a href="team-finder.html" class="smart-feature-card">
+                <span>🤝</span>
+                <h3>Team Finder</h3>
+                <p>Find teammates for projects and competitions.</p>
+            </a>
+
+            <a href="dashboard.html" class="smart-feature-card">
+                <span>📅</span>
+                <h3>My Registrations</h3>
+                <p>Keep track of the events you have joined.</p>
+            </a>
+
+            <a href="feedback.html" class="smart-feature-card">
+                <span>💬</span>
+                <h3>Feedback & Support</h3>
+                <p>Share your experience or report a problem.</p>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- Existing Event Details and Registration Modal -->
+<div class="event-modal" id="eventModal" hidden>
+
+    <div class="event-modal-backdrop" data-close-modal></div>
+
+    <div class="event-modal-content"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalEventTitle">
+
+        <button class="modal-close"
+                type="button"
+                data-close-modal
+                aria-label="Close dialog">×</button>
+
+        <span class="eyebrow" id="modalEventCategory">EVENT DETAILS</span>
+
+        <h2 id="modalEventTitle">Event Name</h2>
+
+        <p id="modalEventDescription"></p>
+
+        <div class="modal-event-meta">
+            <p><strong>Date:</strong> <span id="modalEventDate"></span></p>
+            <p><strong>Time:</strong> <span id="modalEventTime"></span></p>
+            <p><strong>Venue:</strong> <span id="modalEventVenue"></span></p>
+            <p><strong>Organizer:</strong> <span id="modalEventOrganizer"></span></p>
+            <p><strong>Rules:</strong> <span id="modalEventRules"></span></p>
+        </div>
+
+        <div class="modal-registration">
+            <h3>Register for this Event</h3>
+            <p class="modal-form-note">Enter your details to save your registration.</p>
+
+            <form id="eventRegistrationForm">
+                <input type="hidden" id="registrationEventId">
+
+                <div class="form-group">
+                    <label for="participantName">Full Name</label>
+                    <input type="text" id="participantName" required placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="participantEmail">Email Address</label>
+                    <input type="email" id="participantEmail" required placeholder="Enter your email">
+                </div>
+
+                <button type="submit" class="btn btn-primary auth-submit">
+                    Confirm Registration →
+                </button>
+
+                <p id="registrationMessage" class="form-message" aria-live="polite"></p>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <a href="../index.html" class="logo">
+        <span class="logo-icon">✦</span>
+        <span>Eventora</span>
+    </a>
+
+    <p>Discover. Participate. Connect.</p>
+
+    <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="feedback.html">Support</a>
+    </div>
+
+    <p class="copyright">© 2026 Eventora. All rights reserved.</p>
+</footer>
+
+
+<!-- Calendar interaction -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const monthLabel = document.getElementById("calendarMonthYear");
+    const daysContainer = document.getElementById("calendarDays");
+    const prevButton = document.getElementById("calendarPrev");
+    const nextButton = document.getElementById("calendarNext");
+    const agendaTitle = document.getElementById("agendaSelectedDate");
+    const agendaCount = document.getElementById("agendaEventCount");
+    const agendaList = document.getElementById("calendarAgendaList");
+    const searchInput = document.getElementById("calendarSearch");
+    const categorySelect = document.getElementById("calendarCategory");
+
+    const MONTHS = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const today = new Date();
+    let displayedYear = today.getFullYear();
+    let displayedMonth = today.getMonth();
+    let selectedDate = dateKey(today.getFullYear(), today.getMonth(), today.getDate());
+
+    function dateKey(year, month, day) {
+        return year + "-" +
+            String(month + 1).padStart(2, "0") + "-" +
+            String(day).padStart(2, "0");
+    }
+
+    function getStoredEvents() {
+        const possibleKeys = [
+            "eventoraEvents",
+            "campusEvents",
+            "events",
+            "eventora_events"
+        ];
+
+        for (const key of possibleKeys) {
+            try {
+                const value = JSON.parse(localStorage.getItem(key) || "null");
+                if (Array.isArray(value)) return value;
+            } catch (error) {
+                // Ignore invalid local data and try the next key.
+            }
+        }
+
+        return [];
+    }
+
+    function eventDate(event) {
+        const rawDate = event.date || event.eventDate || event.startDate;
+        if (!rawDate) return "";
+
+        const match = String(rawDate).match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (match) return match[1] + "-" + match[2] + "-" + match[3];
+
+        const parsed = new Date(rawDate);
+        if (Number.isNaN(parsed.getTime())) return "";
+
+        return dateKey(parsed.getFullYear(), parsed.getMonth(), parsed.getDate());
+    }
+
+    function eventCategory(event) {
+        return String(event.category || event.type || "Other");
+    }
+
+    function filteredEvents() {
+        const query = searchInput.value.trim().toLowerCase();
+        const category = categorySelect.value;
+
+        return getStoredEvents().filter(function (event) {
+            const matchesCategory = category === "All" ||
+                eventCategory(event).toLowerCase() === category.toLowerCase();
+
+            const searchable = [
+                event.title,
+                event.name,
+                event.category,
+                event.type,
+                event.venue,
+                event.location,
+                event.organizer
+            ].join(" ").toLowerCase();
+
+            return matchesCategory && (!query || searchable.includes(query));
+        });
+    }
+
+    function makeElement(tag, className, text) {
+        const element = document.createElement(tag);
+        if (className) element.className = className;
+        if (text !== undefined) element.textContent = text;
+        return element;
+    }
+
+    function categoryClass(category) {
+        const value = category.toLowerCase();
+        if (value.includes("cultural")) return "cultural";
+        if (value.includes("sport")) return "sports";
+        if (value.includes("workshop")) return "workshop";
+        if (value.includes("music")) return "music";
+        return "";
+    }
+
+    function renderCalendar() {
+        monthLabel.textContent = MONTHS[displayedMonth] + " " + displayedYear;
+        daysContainer.replaceChildren();
+
+        const firstDay = new Date(displayedYear, displayedMonth, 1);
+        const startOffset = (firstDay.getDay() + 6) % 7;
+        const daysInMonth = new Date(displayedYear, displayedMonth + 1, 0).getDate();
+        const previousMonthDays = new Date(displayedYear, displayedMonth, 0).getDate();
+        const events = filteredEvents();
+
+        for (let index = 0; index < 42; index++) {
+            let day;
+            let month = displayedMonth;
+            let year = displayedYear;
+            let otherMonth = false;
+
+            if (index < startOffset) {
+                day = previousMonthDays - startOffset + index + 1;
+                month--;
+                otherMonth = true;
+            } else if (index >= startOffset + daysInMonth) {
+                day = index - startOffset - daysInMonth + 1;
+                month++;
+                otherMonth = true;
+            } else {
+                day = index - startOffset + 1;
+            }
+
+            if (month < 0) {
+                month = 11;
+                year--;
+            } else if (month > 11) {
+                month = 0;
+                year++;
+            }
+
+            const key = dateKey(year, month, day);
+            const matchingEvents = events.filter(event => eventDate(event) === key);
+
+            const button = makeElement("button", "calendar-day");
+            button.type = "button";
+            button.setAttribute("aria-label",
+                MONTHS[month] + " " + day + ", " + year +
+                (matchingEvents.length ? ", " + matchingEvents.length + " events" : "")
+            );
+
+            button.appendChild(makeElement("span", "", String(day)));
+
+            const dots = makeElement("span", "calendar-event-dots");
+            matchingEvents.slice(0, 3).forEach(function (event) {
+                dots.appendChild(makeElement(
+                    "i",
+                    "calendar-event-dot " + categoryClass(eventCategory(event))
+                ));
+            });
+            button.appendChild(dots);
+
+            if (otherMonth) button.classList.add("other-month");
+            if (key === dateKey(today.getFullYear(), today.getMonth(), today.getDate())) {
+                button.classList.add("today");
+            }
+            if (key === selectedDate) button.classList.add("selected");
+            if (matchingEvents.length) button.classList.add("has-event");
+
+            button.addEventListener("click", function () {
+                selectedDate = key;
+                displayedYear = year;
+                displayedMonth = month;
+                renderCalendar();
+                renderAgenda();
+            });
+
+            daysContainer.appendChild(button);
+        }
+    }
+
+    function renderAgenda() {
+        const [year, month, day] = selectedDate.split("-").map(Number);
+        const selected = new Date(year, month - 1, day);
+
+        agendaTitle.textContent = selected.toLocaleDateString("en-IN", {
+            weekday: "long",
+            day: "numeric",
+            month: "long"
+        });
+
+        const events = filteredEvents()
+            .filter(event => eventDate(event) === selectedDate);
+
+        agendaCount.textContent = events.length === 1
+            ? "1 event scheduled"
+            : events.length + " events scheduled";
+
+        agendaList.replaceChildren();
+
+        if (!events.length) {
+            const empty = makeElement("div", "agenda-empty");
+            empty.appendChild(makeElement("span", "empty-icon", "🌙"));
+            empty.appendChild(makeElement("h4", "", "A little breathing room"));
+            empty.appendChild(makeElement(
+                "p", "",
+                "No matching events on this date. Choose another day or change your filters."
+            ));
+            agendaList.appendChild(empty);
+            return;
+        }
+
+        events.forEach(function (event) {
+            const card = makeElement("article", "agenda-event");
+            const dateBox = makeElement("div", "agenda-event-date");
+            dateBox.appendChild(makeElement("strong", "", String(day)));
+            dateBox.appendChild(makeElement("span", "", MONTHS[month - 1].slice(0, 3)));
+            card.appendChild(dateBox);
+
+            const content = makeElement("div", "agenda-event-content");
+            content.appendChild(makeElement("span", "agenda-category", eventCategory(event)));
+            content.appendChild(makeElement("h4", "", event.title || event.name || "Campus Event"));
+
+            if (event.time) {
+                content.appendChild(makeElement("p", "", "🕒 " + event.time));
+            }
+
+            const venue = event.venue || event.location;
+            if (venue) {
+                content.appendChild(makeElement("p", "", "📍 " + venue));
+            }
+
+            const button = makeElement("button", "", "View Details →");
+            button.type = "button";
+
+            button.addEventListener("click", function () {
+                const allEvents = getStoredEvents();
+                const matchingIndex = allEvents.findIndex(item =>
+                    item.id === event.id ||
+                    ((item.title || item.name) === (event.title || event.name) &&
+                    eventDate(item) === eventDate(event))
+                );
+
+                const eventCard = document.querySelectorAll("#eventsGrid .event-card, #eventsGrid article")[matchingIndex];
+
+                if (eventCard) {
+                    eventCard.scrollIntoView({ behavior: "smooth", block: "center" });
+                    eventCard.classList.add("calendar-event-highlight");
+                    setTimeout(() => eventCard.classList.remove("calendar-event-highlight"), 1800);
+                    return;
+                }
+
+                const modal = document.getElementById("eventModal");
+                const modalTitle = document.getElementById("modalEventTitle");
+                const modalCategory = document.getElementById("modalEventCategory");
+                const modalDescription = document.getElementById("modalEventDescription");
+                const modalDate = document.getElementById("modalEventDate");
+                const modalTime = document.getElementById("modalEventTime");
+                const modalVenue = document.getElementById("modalEventVenue");
+                const modalOrganizer = document.getElementById("modalEventOrganizer");
+                const modalRules = document.getElementById("modalEventRules");
+                const registrationId = document.getElementById("registrationEventId");
+
+                if (!modal || !modalTitle) return;
+
+                modalTitle.textContent = event.title || event.name || "Campus Event";
+                modalCategory.textContent = eventCategory(event);
+                modalDescription.textContent = event.description || "Join this campus event and be part of the experience.";
+                modalDate.textContent = event.date || event.eventDate || selectedDate;
+                modalTime.textContent = event.time || "To be announced";
+                modalVenue.textContent = venue || "To be announced";
+                modalOrganizer.textContent = event.organizer || "Campus Organizer";
+                modalRules.textContent = event.rules || "Please follow the event organizer's instructions.";
+
+                if (registrationId) registrationId.value = event.id || "";
+                modal.hidden = false;
+            });
+
+            content.appendChild(button);
+            card.appendChild(content);
+            agendaList.appendChild(card);
+        });
+    }
+
+    prevButton.addEventListener("click", function () {
+        displayedMonth--;
+        if (displayedMonth < 0) {
+            displayedMonth = 11;
+            displayedYear--;
+        }
+        renderCalendar();
+    });
+
+    nextButton.addEventListener("click", function () {
+        displayedMonth++;
+        if (displayedMonth > 11) {
+            displayedMonth = 0;
+            displayedYear++;
+        }
+        renderCalendar();
+    });
+
+    searchInput.addEventListener("input", function () {
+        renderCalendar();
+        renderAgenda();
+    });
+
+    categorySelect.addEventListener("change", function () {
+        renderCalendar();
+        renderAgenda();
+    });
+
+    window.addEventListener("storage", function () {
+        renderCalendar();
+        renderAgenda();
+    });
+
+    renderCalendar();
+    renderAgenda();
+});
+</script>
+
+</body>
+</html>
+
