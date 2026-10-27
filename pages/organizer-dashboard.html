@@ -5,19 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizer Dashboard | Eventora</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/api.js" defer></script>
+    <script src="../JS/auth.js" defer></script>
 </head>
 <body class="organizer-page">
 
     <header class="navbar">
-        <a href="../index.html" class="logo">Eventora</a>
+        <a href="../index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
 
-        <nav>
+        <nav class="nav-links">
             <a href="../index.html">Home</a>
             <a href="events.html">Explore Events</a>
-            <a href="dashboard.html">Student Dashboard</a>
             <a href="feedback.html">Feedback</a>
         </nav>
+        <div class="nav-buttons"></div>
     </header>
 
     <main class="organizer-container">
@@ -95,6 +100,10 @@
                         <label for="eventCapacity">Maximum Participants</label>
                         <input type="number" id="eventCapacity" min="1" value="100" required>
                     </div>
+                    <div class="form-group">
+                        <label for="eventDuration">Duration (minutes)</label>
+                        <input type="number" id="eventDuration" min="15" max="1440" value="60" required>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -141,6 +150,18 @@
             </div>
 
             <div id="organizerRegistrationList"></div>
+            <form id="attendanceCheckInForm" class="form-group">
+                <label for="attendanceCode">Verify attendee QR code</label>
+                <div class="organizer-event-actions">
+                    <input type="text" id="attendanceCode" autocomplete="off"
+                        placeholder="Scan or enter the ticket code" required>
+                    <button class="btn btn-primary" type="submit">Check in</button>
+                    <button class="btn btn-secondary" type="button" id="startQrScanner">Scan with camera</button>
+                    <button class="btn btn-secondary" type="button" id="stopQrScanner" hidden>Stop camera</button>
+                </div>
+                <video id="qrScannerVideo" playsinline hidden aria-label="QR code scanner"></video>
+                <p id="checkInMessage" role="status" aria-live="polite"></p>
+            </form>
         </section>
 
     </main>
@@ -149,7 +170,6 @@
         <p>© 2026 Eventora. All rights reserved.</p>
     </footer>
 
-    <script src="../js/organizer.js" defer></script>
+    <script src="../JS/organizer.js" defer></script>
 </body>
 </html>
-

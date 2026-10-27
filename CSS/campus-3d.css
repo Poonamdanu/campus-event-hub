@@ -1,0 +1,412 @@
+.campus-3d-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 75% 4%, rgba(32, 111, 157, 0.18), transparent 38%),
+        var(--bg);
+}
+
+.home-campus-3d {
+    scroll-margin-top: 100px;
+    background:
+        radial-gradient(ellipse at 75% 4%, rgba(32, 111, 157, 0.13), transparent 38%),
+        var(--bg-light);
+}
+
+.home-campus-3d .campus-3d-main {
+    width: 100%;
+    padding: 0;
+}
+
+.home-campus-3d-heading {
+    align-items: end;
+}
+
+.home-campus-3d-heading .btn {
+    flex: 0 0 auto;
+}
+
+.home-campus-3d .campus-3d-viewport {
+    height: clamp(400px, 52vw, 610px);
+}
+
+.home-campus-3d .campus-3d-events {
+    max-height: 610px;
+}
+
+.home-campus-3d-credit {
+    margin: 12px 4px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.home-campus-3d-credit a {
+    color: var(--accent-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.campus-3d-main {
+    width: min(1500px, 94%);
+    margin: 0 auto;
+    padding: 48px 0 70px;
+}
+
+.campus-3d-heading {
+    max-width: 760px;
+    margin-bottom: 28px;
+}
+
+.campus-3d-heading h1 {
+    margin: 9px 0;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.campus-3d-heading p,
+.campus-3d-disclaimer {
+    color: var(--muted);
+}
+
+.campus-3d-toolbar {
+    display: flex;
+    align-items: end;
+    gap: 14px;
+    margin: 26px 0 18px;
+}
+
+.campus-3d-toolbar label {
+    display: grid;
+    flex: 1 1 250px;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.campus-3d-toolbar input,
+.campus-3d-toolbar select {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 13px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--text);
+    font: inherit;
+}
+
+.campus-3d-reset {
+    min-height: 46px;
+    padding: 0 17px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--text);
+    font: inherit;
+    font-weight: 700;
+}
+
+.campus-3d-reset:hover,
+.campus-3d-reset:focus-visible {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.campus-3d-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(290px, 0.8fr);
+    gap: 18px;
+    align-items: stretch;
+}
+
+.campus-3d-viewer,
+.campus-3d-events {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #10243e, #0b1c33);
+    box-shadow: 0 22px 65px rgba(0, 0, 0, 0.22);
+}
+
+.campus-3d-viewport {
+    position: relative;
+    height: clamp(460px, 58vw, 690px);
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 30%, #a5c9db 0%, #628ca4 48%, #274d61 100%);
+    touch-action: none;
+}
+
+.campus-3d-viewport canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    outline: none;
+}
+
+.campus-3d-viewport canvas:active {
+    cursor: grabbing;
+}
+
+.campus-3d-viewport canvas:focus-visible {
+    outline: 3px solid var(--accent-light);
+    outline-offset: -4px;
+}
+
+.campus-3d-viewer-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    max-width: calc(100% - 32px);
+    padding: 9px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 999px;
+    background: rgba(7, 20, 38, 0.78);
+    color: #f8fafc;
+    font-size: 12px;
+    font-weight: 700;
+    backdrop-filter: blur(12px);
+}
+
+.campus-3d-live-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.8);
+}
+
+.campus-3d-controls {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 7px;
+    max-width: 90%;
+}
+
+.campus-3d-controls span {
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 999px;
+    background: rgba(7, 20, 38, 0.72);
+    color: #e2e8f0;
+    font-size: 11px;
+    backdrop-filter: blur(9px);
+}
+
+.campus-3d-status {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: min(420px, calc(100% - 40px));
+    padding: 18px;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.23);
+    border-radius: 16px;
+    background: rgba(7, 20, 38, 0.9);
+    color: #fff;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.campus-3d-disclaimer {
+    margin: 11px 5px 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.campus-3d-events {
+    display: flex;
+    max-height: 690px;
+    flex-direction: column;
+    padding: 22px;
+}
+
+.campus-3d-events-heading h2 {
+    margin: 6px 0;
+    overflow-wrap: anywhere;
+    font-size: 1.35rem;
+}
+
+.campus-3d-events-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.campus-3d-event-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+    overflow-y: auto;
+    padding: 1px 5px 1px 1px;
+}
+
+.campus-3d-event-card {
+    display: block;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--text);
+    transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.campus-3d-event-card:hover,
+.campus-3d-event-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    background: rgba(56, 189, 248, 0.08);
+    outline: none;
+}
+
+.campus-3d-event-card strong,
+.campus-3d-event-card span {
+    display: block;
+}
+
+.campus-3d-event-card strong {
+    line-height: 1.4;
+}
+
+.campus-3d-event-card span {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.campus-3d-event-card .campus-3d-event-category {
+    color: var(--accent-light);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.campus-3d-focus-button {
+    margin-top: 11px;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-light);
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.campus-3d-focus-button:hover,
+.campus-3d-focus-button:focus-visible {
+    border-color: var(--accent-light);
+    outline: none;
+}
+
+.campus-3d-empty {
+    padding: 14px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.campus-3d-photo-credit {
+    display: grid;
+    grid-template-columns: minmax(170px, 270px) 1fr;
+    align-items: center;
+    gap: 18px;
+    margin: 20px 0 0;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(16, 36, 62, 0.65);
+}
+
+.campus-3d-photo-credit img {
+    width: 100%;
+    max-height: 170px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.campus-3d-photo-credit figcaption {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.campus-3d-photo-credit a {
+    color: var(--accent-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .campus-3d-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .campus-3d-events {
+        max-height: 480px;
+    }
+
+    .home-campus-3d .campus-3d-viewport {
+        height: 480px;
+    }
+
+    .campus-3d-event-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 580px) {
+    .campus-3d-main {
+        width: min(100% - 28px, 1500px);
+        padding: 34px 0 50px;
+    }
+
+    .campus-3d-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .campus-3d-toolbar label {
+        flex-basis: auto;
+    }
+
+    .campus-3d-viewport {
+        height: 420px;
+    }
+
+    .campus-3d-events {
+        padding: 17px;
+    }
+
+    .home-campus-3d-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .home-campus-3d .campus-3d-viewport {
+        height: 390px;
+    }
+
+    .campus-3d-event-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .campus-3d-photo-credit {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .campus-3d-photo-credit img {
+        max-height: 220px;
+    }
+}

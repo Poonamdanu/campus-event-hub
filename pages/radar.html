@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Event Radar | Eventora</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/api.js"></script>
+    <script src="../JS/radar.js" defer></script>
+    <style>
+        .radar-page { max-width: 1200px; margin: 0 auto; padding: 48px 24px 80px; }
+        .radar-heading { margin-bottom: 28px; }
+        .radar-heading h1 { margin: 10px 0; }
+        .radar-heading p, .map-note { color: #aaa9c2; }
+        .radar-toolbar { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+        .radar-toolbar input, .radar-toolbar select {
+            min-width: 190px; flex: 1; padding: 12px 14px; border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.15); background: #202136; color: #fff;
+        }
+        .radar-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .8fr); gap: 22px; }
+        .campus-map, .radar-details {
+            min-height: 470px; border: 1px solid rgba(255,255,255,.1); border-radius: 22px;
+            background: linear-gradient(145deg, #191a2c, #11121f); overflow: hidden;
+        }
+        .campus-map { position: relative; background-color: #171d2d; background-image:
+            linear-gradient(35deg, transparent 47%, rgba(255,255,255,.045) 48%, rgba(255,255,255,.045) 51%, transparent 52%),
+            linear-gradient(145deg, transparent 42%, rgba(255,255,255,.04) 43%, rgba(255,255,255,.04) 46%, transparent 47%),
+            radial-gradient(ellipse at 50% 50%, rgba(91,161,130,.18), transparent 66%); }
+        .campus-map::before, .campus-map::after {
+            content: ""; position: absolute; background: rgba(255,255,255,.045); border-radius: 50%;
+        }
+        .campus-map::before { width: 145px; height: 75px; left: 39%; top: 42%; }
+        .campus-map::after { width: 100px; height: 120px; left: 9%; top: 18%; }
+        .map-label { position: absolute; z-index: 1; color: #7d8a9c; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+        .map-label.center { left: 44%; top: 53%; }
+        .map-label.garden { left: 10%; top: 43%; }
+        .map-pin {
+            position: absolute; z-index: 2; transform: translate(-50%, -50%); max-width: 150px;
+            display: grid; justify-items: center; gap: 5px; padding: 7px 10px; cursor: pointer;
+            color: #fff; background: rgba(32,33,54,.96); border: 1px solid rgba(189,130,245,.5);
+            border-radius: 13px; font: inherit; font-size: 11px; box-shadow: 0 8px 26px rgba(0,0,0,.24);
+        }
+        .map-pin:hover, .map-pin:focus-visible, .map-pin[aria-pressed="true"] { border-color: #d99af5; background: #34304e; }
+        .map-pin-count { color: #e4b7ff; font-weight: 800; }
+        .radar-details { padding: 22px; }
+        .radar-details h2 { margin-top: 0; }
+        .radar-event-list { display: grid; gap: 12px; }
+        .radar-event {
+            width: 100%; padding: 14px; text-align: left; color: #fff; cursor: pointer;
+            border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: rgba(255,255,255,.045);
+        }
+        .radar-event:hover, .radar-event:focus-visible { border-color: #bd82f5; }
+        .radar-event strong, .radar-event span { display: block; }
+        .radar-event span { margin-top: 6px; color: #aaa9c2; font-size: 13px; }
+        .radar-state { color: #c3bdd5; line-height: 1.6; }
+        .map-note { margin-top: 14px; font-size: 13px; }
+        @media (max-width: 760px) {
+            .radar-layout { grid-template-columns: 1fr; }
+            .campus-map { min-height: 390px; }
+        }
+        @media (max-width: 480px) {
+            .radar-page { padding: 32px 16px 56px; }
+            .campus-map { min-height: 340px; }
+            .map-pin { max-width: 112px; padding: 6px; font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="../index.html" class="logo"><span class="logo-icon">✦</span><span>Eventora</span></a>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="events.html">Explore Events</a>
+            <a href="portal.html">My Portal</a>
+        </nav>
+    </header>
+
+    <main class="radar-page">
+        <section class="radar-heading">
+            <span class="eyebrow">A QUICK LOOK AROUND CAMPUS</span>
+            <h1>Campus Event <span class="gradient-text">Radar.</span></h1>
+            <p>Choose a venue marker to see approved events at that location.</p>
+        </section>
+
+        <div class="radar-toolbar">
+            <input id="radarSearch" type="search" placeholder="Search events or venues" aria-label="Search events or venues">
+            <select id="radarCategory" aria-label="Filter by event category">
+                <option value="all">All categories</option>
+                <option>Technical</option>
+                <option>Cultural</option>
+                <option>Sports</option>
+                <option>Workshop</option>
+                <option>Music</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="radar-layout">
+            <section>
+                <div id="campusMap" class="campus-map" role="group" aria-label="Illustrative campus map">
+                    <span class="map-label center">Central quad</span>
+                    <span class="map-label garden">Campus garden</span>
+                    <p id="radarMapState" class="radar-state">Loading campus events...</p>
+                </div>
+                <p class="map-note">Illustrative campus layout for demo use; venue markers are not GPS locations.</p>
+            </section>
+            <aside class="radar-details" aria-live="polite">
+                <h2 id="radarDetailsTitle">Choose a venue</h2>
+                <div id="radarEventList" class="radar-event-list">
+                    <p class="radar-state">Select a marker on the map to view its events.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Discover. Participate. Connect.</p>
+        <p class="copyright">© 2026 Eventora. All rights reserved.</p>
+    </footer>
+</body>
+</html>

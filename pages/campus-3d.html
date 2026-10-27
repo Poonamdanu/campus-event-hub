@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071426">
+    <title>GEHU Bhimtal 3D Campus Radar | Eventora</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/campus-3d.css">
+    <script src="../JS/api.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="../JS/campus-3d.js" defer></script>
+</head>
+<body class="campus-3d-page">
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="events.html">Explore Events</a>
+            <a href="radar.html">2D Radar</a>
+        </nav>
+    </header>
+
+    <main class="campus-3d-main">
+        <section class="campus-3d-heading">
+            <span class="eyebrow">GEHU · BHIMTAL CAMPUS</span>
+            <h1>Explore campus in <span class="gradient-text">3D.</span></h1>
+            <p>Look around the illustrated hillside campus and open a live event pin to see what's happening at that venue.</p>
+        </section>
+
+        <section class="campus-3d-toolbar" aria-label="Filter campus events">
+            <label>
+                <span>Search events or venues</span>
+                <input id="campus3dSearch" type="search" placeholder="Try auditorium, workshop...">
+            </label>
+            <label>
+                <span>Category</span>
+                <select id="campus3dCategory">
+                    <option value="all">All categories</option>
+                    <option>Technical</option>
+                    <option>Cultural</option>
+                    <option>Sports</option>
+                    <option>Workshop</option>
+                    <option>Music</option>
+                    <option>Other</option>
+                </select>
+            </label>
+            <button type="button" class="campus-3d-reset" id="campus3dReset">Reset view</button>
+        </section>
+
+        <div class="campus-3d-layout">
+            <section class="campus-3d-viewer" aria-label="Interactive three-dimensional campus">
+                <div id="campus3dViewport" class="campus-3d-viewport">
+                    <canvas id="campus3dCanvas" tabindex="0" aria-label="Interactive 3D campus. Drag to rotate, use arrow keys to rotate, plus and minus to zoom, and Enter to focus the selected venue."></canvas>
+                    <div class="campus-3d-viewer-badge">
+                        <span class="campus-3d-live-dot"></span>
+                        <span id="campus3dCount">Loading campus events...</span>
+                    </div>
+                    <div class="campus-3d-controls" aria-hidden="true">
+                        <span>Drag to rotate</span>
+                        <span>Scroll to zoom</span>
+                        <span>Click a glowing pin · arrows to rotate · +/- to zoom</span>
+                    </div>
+                    <div id="campus3dStatus" class="campus-3d-status" role="status" hidden></div>
+                </div>
+                <p class="campus-3d-disclaimer">Illustrative 3D reconstruction for exploration. Building shapes and venue pin positions are approximate, not a surveyed campus map.</p>
+            </section>
+
+            <aside class="campus-3d-events" aria-live="polite">
+                <div class="campus-3d-events-heading">
+                    <span class="eyebrow">LIVE AT THIS LOCATION</span>
+                    <h2 id="campus3dVenueTitle">Choose a glowing pin</h2>
+                    <p id="campus3dVenueDescription">Select any event marker in the 3D view to explore its venue.</p>
+                </div>
+                <div id="campus3dEventList" class="campus-3d-event-list">
+                    <p class="campus-3d-empty">Loading approved campus events...</p>
+                </div>
+            </aside>
+        </div>
+
+        <figure class="campus-3d-photo-credit">
+            <img src="../Assets/gehu-bhimtal-campus.jpg" alt="Graphic Era Hill University Bhimtal campus building" loading="lazy">
+            <figcaption>
+                Campus reference photo by <a href="https://commons.wikimedia.org/wiki/User:Libreravi" target="_blank" rel="noopener noreferrer">Ravi Dwivedi</a>,
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+                <a href="https://commons.wikimedia.org/wiki/File:Graphic_Era_Hill_University_Bhimtal_Campus.jpg" target="_blank" rel="noopener noreferrer">View original on Wikimedia Commons</a>.
+                The 3D building based on this image is an illustrative representation.
+            </figcaption>
+        </figure>
+    </main>
+
+    <footer class="footer">
+        <p>Discover. Participate. Connect.</p>
+        <p class="copyright">© 2026 Eventora. All rights reserved.</p>
+    </footer>
+</body>
+</html>

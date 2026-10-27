@@ -9,8 +9,9 @@
     <meta name="description"
           content="Discover campus events, find teammates, manage registrations and connect with your campus community using Eventora.">
 
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/campus-3d.css">
+    <script src="JS/script.js" defer></script>
 </head>
 
 <body>
@@ -24,14 +25,14 @@
 
         <nav class="nav-links">
             <a href="index.html" class="active">Home</a>
-            <a href="pages/events.html">Events</a>
-            <a href="#dashboard-shortcuts">Dashboards</a>
-            <a href="pages/about.html">About</a>
+            <a href="Pages/events.html">Events</a>
+            <a href="Pages/portal.html">My Portal</a>
+            <a href="Pages/about.html">About</a>
         </nav>
 
         <div class="nav-buttons">
-            <a href="pages/login.html" class="btn btn-outline">Login</a>
-            <a href="pages/signup.html" class="btn btn-primary">Sign Up</a>
+            <a href="Pages/login.html" class="btn btn-outline">Login</a>
+            <a href="Pages/signup.html" class="btn btn-primary">Sign Up</a>
         </div>
     </header>
 
@@ -75,12 +76,12 @@
 
                 <div class="hero-actions">
 
-                    <a href="pages/events.html" class="btn btn-primary">
+                    <a href="Pages/events.html" class="btn btn-primary">
                         Explore Events →
                     </a>
 
-                    <a href="#dashboard-shortcuts" class="btn btn-outline">
-                        Explore Dashboards
+                    <a href="Pages/portal.html" class="btn btn-outline">
+                        Open Your Portals
                     </a>
 
                 </div>
@@ -125,7 +126,7 @@
         </section>
 
 
-        <!-- Five Dashboard Shortcuts -->
+        <!-- Role-specific dashboards open through the authenticated portal. -->
         <section class="section dashboard-section"
                  id="dashboard-shortcuts">
 
@@ -140,7 +141,7 @@
                     </h2>
 
                     <p>
-                        Choose a section to explore its features.
+                        Open the portal for your account, or explore events and support.
                     </p>
                 </div>
 
@@ -149,30 +150,29 @@
 
             <div class="dashboard-grid">
 
-                <!-- 1. Student Dashboard -->
-                <a href="pages/dashboard.html"
+                <a href="Pages/portal.html"
                    class="dashboard-card student-card">
 
-                    <div class="dashboard-icon">🎓</div>
+                    <div class="dashboard-icon">🧭</div>
 
                     <span class="card-number">01</span>
 
-                    <h3>Student Dashboard</h3>
+                    <h3>My Portal</h3>
 
                     <p>
-                        Manage your registrations, event reminders,
-                        certificates, achievements and recommendations.
+                        Sign in to open the student, organizer, or administrator
+                        dashboard assigned to your account.
                     </p>
 
                     <span class="card-link">
-                        Explore Student Space →
+                        Open My Portal →
                     </span>
 
                 </a>
 
 
                 <!-- 2. Events Explorer -->
-                <a href="pages/events.html"
+                <a href="Pages/events.html"
                    class="dashboard-card explorer-card">
 
                     <div class="dashboard-icon">🔎</div>
@@ -193,57 +193,12 @@
                 </a>
 
 
-                <!-- 3. Organizer Dashboard -->
-                <a href="pages/organizer-dashboard.html"
-                   class="dashboard-card organizer-card">
-
-                    <div class="dashboard-icon">📅</div>
-
-                    <span class="card-number">03</span>
-
-                    <h3>Organizer Dashboard</h3>
-
-                    <p>
-                        Create events, manage registrations,
-                        view participants and track attendance.
-                    </p>
-
-                    <span class="card-link">
-                        Manage Events →
-                    </span>
-
-                </a>
-
-
-                <!-- 4. Admin Dashboard -->
-                <a href="pages/admin-dashboard.html"
-                   class="dashboard-card admin-card">
-
-                    <div class="dashboard-icon">🛡️</div>
-
-                    <span class="card-number">04</span>
-
-                    <h3>Admin Dashboard</h3>
-
-                    <p>
-                        Review event submissions, manage users,
-                        approve events and monitor complaints.
-                    </p>
-
-                    <span class="card-link">
-                        Open Admin Panel →
-                    </span>
-
-                </a>
-
-
-                <!-- 5. Feedback and Support -->
-                <a href="pages/feedback.html"
+                <a href="Pages/feedback.html"
                    class="dashboard-card feedback-card">
 
                     <div class="dashboard-icon">💬</div>
 
-                    <span class="card-number">05</span>
+                    <span class="card-number">03</span>
 
                     <h3>Feedback &amp; Support</h3>
 
@@ -280,7 +235,7 @@
                     </p>
                 </div>
 
-                <a href="pages/events.html" class="text-link">
+                <a href="Pages/events.html" class="text-link">
                     View All Events →
                 </a>
 
@@ -289,37 +244,37 @@
 
             <div class="category-grid">
 
-                <a href="pages/events.html?category=Technical"
+                <a href="Pages/events.html?category=Technical"
                    class="category-card">
                     <span>💻</span>
                     <h3>Technical</h3>
                 </a>
 
-                <a href="pages/events.html?category=Cultural"
+                <a href="Pages/events.html?category=Cultural"
                    class="category-card">
                     <span>🎭</span>
                     <h3>Cultural</h3>
                 </a>
 
-                <a href="pages/events.html?category=Sports"
+                <a href="Pages/events.html?category=Sports"
                    class="category-card">
                     <span>⚽</span>
                     <h3>Sports</h3>
                 </a>
 
-                <a href="pages/events.html?category=Workshop"
+                <a href="Pages/events.html?category=Workshop"
                    class="category-card">
                     <span>🧠</span>
                     <h3>Workshops</h3>
                 </a>
 
-                <a href="pages/events.html?category=Music"
+                <a href="Pages/events.html?category=Music"
                    class="category-card">
                     <span>🎵</span>
                     <h3>Music</h3>
                 </a>
 
-                <a href="pages/events.html?category=Other"
+                <a href="Pages/events.html?category=Other"
                    class="category-card">
                     <span>✨</span>
                     <h3>Others</h3>
@@ -348,7 +303,7 @@
                     </p>
                 </div>
 
-                <a href="pages/events.html" class="text-link">
+                <a href="Pages/events.html" class="text-link">
                     View All →
                 </a>
 
@@ -372,7 +327,7 @@
                         <p>📅 12 November 2026</p>
                         <p>📍 Main Auditorium</p>
 
-                        <a href="pages/events.html"
+                        <a href="Pages/events.html"
                            class="btn btn-primary btn-small">
                             View Details
                         </a>
@@ -397,7 +352,7 @@
                         <p>📅 15 November 2026</p>
                         <p>📍 Open Ground</p>
 
-                        <a href="pages/events.html"
+                        <a href="Pages/events.html"
                            class="btn btn-primary btn-small">
                             View Details
                         </a>
@@ -422,7 +377,7 @@
                         <p>📅 18 November 2026</p>
                         <p>📍 Computer Lab</p>
 
-                        <a href="pages/events.html"
+                        <a href="Pages/events.html"
                            class="btn btn-primary btn-small">
                             View Details
                         </a>
@@ -463,36 +418,111 @@
 
             <div class="smart-features-grid">
 
-                <a href="pages/free-time-finder.html"
+                <a href="Pages/free-time-finder.html"
                    class="smart-feature-card">
                     <span>⏰</span>
                     <h3>Free-Time Event Finder</h3>
                     <p>Discover events that fit your available time.</p>
                 </a>
 
-                <a href="pages/team-finder.html"
+                <a href="Pages/team-finder.html"
                    class="smart-feature-card">
                     <span>🤝</span>
                     <h3>Team Member Finder</h3>
                     <p>Find teammates for hackathons and group activities.</p>
                 </a>
 
-                <a href="pages/events.html"
+                <a href="Pages/events.html"
                    class="smart-feature-card">
                     <span>⚠️</span>
                     <h3>Date Conflict Alerts</h3>
                     <p>Identify schedule clashes between registered events.</p>
                 </a>
 
-                <a href="pages/events.html"
+                <a href="Pages/radar.html"
                    class="smart-feature-card">
                     <span>📍</span>
                     <h3>Smart Campus Event Radar</h3>
                     <p>Explore campus events through a location-based view.</p>
                 </a>
 
+                <a href="#home-campus-radar"
+                   class="smart-feature-card">
+                    <span>🏫</span>
+                    <h3>3D GEHU Bhimtal Campus</h3>
+                    <p>Explore the interactive 3D campus model right here on the homepage.</p>
+                </a>
+
             </div>
 
+        </section>
+
+        <section class="section home-campus-3d" id="home-campus-radar">
+            <div class="section-heading home-campus-3d-heading">
+                <div>
+                    <span class="eyebrow">GRAPHIC ERA HILL UNIVERSITY · BHIMTAL</span>
+                    <h2>Explore GEHU <span>in 3D.</span></h2>
+                    <p>The interactive campus radar is right here. Drag to look around, then select an event pin.</p>
+                </div>
+                <a class="btn btn-outline" href="Pages/campus-3d.html">Open full view ↗</a>
+            </div>
+
+            <div class="campus-3d-toolbar" aria-label="Filter campus events">
+                <label>
+                    <span>Search events or venues</span>
+                    <input id="campus3dSearch" type="search" placeholder="Try auditorium, workshop...">
+                </label>
+                <label>
+                    <span>Category</span>
+                    <select id="campus3dCategory">
+                        <option value="all">All categories</option>
+                        <option>Technical</option>
+                        <option>Cultural</option>
+                        <option>Sports</option>
+                        <option>Workshop</option>
+                        <option>Music</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+                <button type="button" class="campus-3d-reset" id="campus3dReset">Reset view</button>
+            </div>
+
+            <div class="campus-3d-layout">
+                <section class="campus-3d-viewer" aria-label="Interactive three-dimensional GEHU campus">
+                    <div id="campus3dViewport" class="campus-3d-viewport">
+                        <canvas id="campus3dCanvas" tabindex="0" aria-label="Interactive 3D campus. Drag to rotate, use arrow keys to rotate, plus and minus to zoom, and Enter to focus the selected venue."></canvas>
+                        <div class="campus-3d-viewer-badge">
+                            <span class="campus-3d-live-dot"></span>
+                            <span id="campus3dCount">Loading campus events...</span>
+                        </div>
+                        <div class="campus-3d-controls" aria-hidden="true">
+                            <span>Drag to rotate</span>
+                            <span>Scroll to zoom</span>
+                            <span>Click a glowing pin · arrows to rotate · +/- to zoom</span>
+                        </div>
+                        <div id="campus3dStatus" class="campus-3d-status" role="status" hidden></div>
+                    </div>
+                    <p class="campus-3d-disclaimer">Illustrative 3D reconstruction. Building shapes and venue pin positions are approximate, not a surveyed campus map.</p>
+                </section>
+
+                <aside class="campus-3d-events" aria-live="polite">
+                    <div class="campus-3d-events-heading">
+                        <span class="eyebrow">LIVE AT THIS LOCATION</span>
+                        <h2 id="campus3dVenueTitle">Choose a glowing pin</h2>
+                        <p id="campus3dVenueDescription">Select any event marker in the 3D view to explore its venue.</p>
+                    </div>
+                    <div id="campus3dEventList" class="campus-3d-event-list">
+                        <p class="campus-3d-empty">Loading approved campus events...</p>
+                    </div>
+                </aside>
+            </div>
+
+            <p class="home-campus-3d-credit">
+                GEHU campus reference photo by
+                <a href="https://commons.wikimedia.org/wiki/User:Libreravi" target="_blank" rel="noopener noreferrer">Ravi Dwivedi</a>,
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+                · <a href="https://commons.wikimedia.org/wiki/File:Graphic_Era_Hill_University_Bhimtal_Campus.jpg" target="_blank" rel="noopener noreferrer">View original photo</a>.
+            </p>
         </section>
 
 
@@ -512,7 +542,7 @@
                 and create unforgettable campus memories.
             </p>
 
-            <a href="pages/signup.html" class="btn btn-primary">
+            <a href="Pages/signup.html" class="btn btn-primary">
                 Join Eventora →
             </a>
 
@@ -533,10 +563,10 @@
 
         <div class="footer-links">
             <a href="index.html">Home</a>
-            <a href="pages/events.html">Events</a>
-            <a href="#dashboard-shortcuts">Dashboards</a>
-            <a href="pages/about.html">About</a>
-            <a href="pages/feedback.html">Support</a>
+            <a href="Pages/events.html">Events</a>
+            <a href="Pages/portal.html">My Portal</a>
+            <a href="Pages/about.html">About</a>
+            <a href="Pages/feedback.html">Support</a>
         </div>
 
         <p class="copyright">
@@ -544,6 +574,11 @@
         </p>
 
     </footer>
+
+    <script src="JS/api.js" defer></script>
+    <script src="JS/auth.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="JS/campus-3d.js" defer></script>
 
 </body>
 </html>

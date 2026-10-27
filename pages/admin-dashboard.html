@@ -7,23 +7,25 @@
 
     <title>Admin Dashboard | Eventora</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/api.js" defer></script>
+    <script src="../JS/auth.js" defer></script>
 </head>
 
 <body class="admin-page">
 
     <header class="navbar">
         <a href="../index.html" class="logo">
-            ✦ Eventora
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
         </a>
 
         <nav class="nav-links">
             <a href="../index.html">Home</a>
             <a href="events.html">Events</a>
-            <a href="dashboard.html">Student Dashboard</a>
-            <a href="organizer-dashboard.html">Organizer</a>
             <a href="feedback.html">Feedback</a>
         </nav>
+        <div class="nav-buttons"></div>
     </header>
 
 
@@ -56,14 +58,14 @@
                 <div class="admin-stat-icon">🎪</div>
                 <p>Total Events</p>
                 <h2 id="adminTotalEvents">0</h2>
-                <span>Events in this browser</span>
+                <span>Events stored in SQLite</span>
             </article>
 
             <article class="admin-stat-card">
                 <div class="admin-stat-icon">👥</div>
                 <p>Total Registrations</p>
                 <h2 id="adminTotalRegistrations">0</h2>
-                <span>Recorded registrations</span>
+                <span>Registrations stored in SQLite</span>
             </article>
 
             <article class="admin-stat-card">
@@ -84,7 +86,7 @@
 
 
         <!-- Event Management -->
-        <section class="admin-section">
+        <section class="admin-section" id="event-management">
 
             <div class="admin-section-heading">
                 <div>
@@ -162,10 +164,10 @@
                     <p>View campus events.</p>
                 </a>
 
-                <a href="organizer-dashboard.html" class="admin-tool-card">
+                <a href="admin-dashboard.html#event-management" class="admin-tool-card">
                     <span>🛠️</span>
-                    <h3>Organizer Dashboard</h3>
-                    <p>Manage event creation.</p>
+                    <h3>Review Event Submissions</h3>
+                    <p>Approve or reject organizer submissions.</p>
                 </a>
 
                 <a href="feedback.html" class="admin-tool-card">
@@ -192,8 +194,7 @@
     </footer>
 
 
-    <script src="../js/admin.js" defer></script>
+    <script src="../JS/admin.js" defer></script>
 
 </body>
 </html>
-

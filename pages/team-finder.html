@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Finder | Eventora</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body class="team-finder-page">
+
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">✦</span>
+                <span>Eventora</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="portal.html">My Portal</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="team-container">
+
+        <section class="team-hero">
+            <span class="team-tag">🤝 CONNECT • COLLABORATE • COMPETE</span>
+
+            <h1>Find Your Perfect <span>Teammates</span></h1>
+
+            <p>
+                Connect with students who share your interests and build
+                your dream team for hackathons, competitions and campus events.
+            </p>
+        </section>
+
+        <section class="team-stats">
+            <div class="team-stat-card">
+                <h2 id="teamCount">0</h2>
+                <p>Students Listed</p>
+            </div>
+
+            <div class="team-stat-card">
+                <h2 id="openPositions">0</h2>
+                <p>Open Positions</p>
+            </div>
+
+            <div class="team-stat-card">
+                <h2 id="projectCount">0</h2>
+                <p>Projects & Events</p>
+            </div>
+        </section>
+
+        <section class="team-layout">
+
+            <div class="team-form-card">
+                <h2>Find or Create a Team</h2>
+                <p class="team-subtitle">
+                    Share your skills and let other students connect with you.
+                </p>
+
+                <form id="teamForm">
+
+                    <label for="studentName">Your Name</label>
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                    <label for="studentEmail">College Email</label>
+                    <input
+                        type="email"
+                        id="studentEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <label for="teamEvent">Event or Project</label>
+                    <input
+                        type="text"
+                        id="teamEvent"
+                        placeholder="e.g. Hackathon, AI Project"
+                        required
+                    >
+
+                    <label for="studentSkills">Your Skills</label>
+                    <input
+                        type="text"
+                        id="studentSkills"
+                        placeholder="e.g. HTML, Python, UI/UX"
+                        required
+                    >
+
+                    <label for="teamRole">Role You Need</label>
+                    <select id="teamRole" required>
+                        <option value="">Select a role</option>
+                        <option value="Frontend Developer">Frontend Developer</option>
+                        <option value="Backend Developer">Backend Developer</option>
+                        <option value="UI/UX Designer">UI/UX Designer</option>
+                        <option value="AI/ML Developer">AI/ML Developer</option>
+                        <option value="App Developer">App Developer</option>
+                        <option value="Any Role">Any Role</option>
+                    </select>
+
+                    <label for="teamDescription">About Your Team</label>
+                    <textarea
+                        id="teamDescription"
+                        rows="4"
+                        placeholder="Describe your project and the teammate you need..."
+                        required
+                    ></textarea>
+
+                    <button type="submit" class="team-submit-btn">
+                        + Post Team Requirement
+                    </button>
+
+                    <p id="teamFormMessage" class="team-message"></p>
+
+                </form>
+            </div>
+
+            <div class="team-list-section">
+
+                <div class="team-list-heading">
+                    <div>
+                        <h2>Explore Teams</h2>
+                        <p>Discover opportunities posted by students.</p>
+                    </div>
+                </div>
+
+                <div class="team-search-box">
+                    <input
+                        type="search"
+                        id="teamSearch"
+                        placeholder="Search skills, events or roles..."
+                    >
+
+                    <select id="roleFilter">
+                        <option value="all">All Roles</option>
+                        <option value="Frontend Developer">Frontend Developer</option>
+                        <option value="Backend Developer">Backend Developer</option>
+                        <option value="UI/UX Designer">UI/UX Designer</option>
+                        <option value="AI/ML Developer">AI/ML Developer</option>
+                        <option value="App Developer">App Developer</option>
+                        <option value="Any Role">Any Role</option>
+                    </select>
+                </div>
+
+                <div id="teamList" class="team-list"></div>
+
+                <div id="noTeams" class="no-teams" hidden>
+                    <h3>No teams found</h3>
+                    <p>Try another search or create a new team requirement.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="team-tip">
+            <h3>💡 Teamwork Tip</h3>
+            <p>
+                A great team combines different strengths. Look for teammates
+                with complementary skills, clear communication and shared goals.
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="currentYear"></span> Eventora. Built for campus collaboration.</p>
+    </footer>
+
+    <script src="../JS/team-finder.js"></script>
+
+</body>
+</html>

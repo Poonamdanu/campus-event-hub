@@ -7,8 +7,10 @@
 
     <title>Student Dashboard | Eventora</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/student-dashboard.js" defer></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/api.js" defer></script>
+    <script src="../JS/auth.js" defer></script>
+    <script src="../JS/student-dashboard.js" defer></script>
 </head>
 
 <body>
@@ -154,6 +156,16 @@
 
             </div>
 
+        </section>
+
+        <section class="student-panel">
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">EVENT ENTRY</span>
+                    <h2>My QR Tickets</h2>
+                </div>
+            </div>
+            <div id="studentTickets" class="student-events"></div>
         </section>
 
 
@@ -330,4 +342,3 @@
 
 </body>
 </html>
-

@@ -1,0 +1,16 @@
+{
+  "name": "campus-event-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Campus events demo website and SQLite API",
+  "scripts": {
+    "postinstall": "npm --prefix backend install",
+    "install:backend": "npm --prefix backend install",
+    "start": "node backend/server.js",
+    "dev": "npm --prefix backend run dev",
+    "test": "npm --prefix backend test"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
