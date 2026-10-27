@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Dashboard | Eventora</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="organizer-page">
+
+    <header class="navbar">
+        <a href="../index.html" class="logo">Eventora</a>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="events.html">Explore Events</a>
+            <a href="dashboard.html">Student Dashboard</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+    </header>
+
+    <main class="organizer-container">
+
+        <section class="organizer-heading">
+            <div>
+                <p class="section-tag">EVENT MANAGEMENT</p>
+                <h1>Organizer Dashboard</h1>
+                <p>Create events, manage registrations, and track participation.</p>
+            </div>
+
+            <button class="btn btn-primary" id="showEventForm">
+                + Create Event
+            </button>
+        </section>
+
+        <section class="organizer-stats">
+            <div class="organizer-stat-card">
+                <h3>Total Events</h3>
+                <p id="totalEvents">0</p>
+            </div>
+
+            <div class="organizer-stat-card">
+                <h3>Upcoming Events</h3>
+                <p id="upcomingEvents">0</p>
+            </div>
+
+            <div class="organizer-stat-card">
+                <h3>Total Registrations</h3>
+                <p id="totalRegistrations">0</p>
+            </div>
+        </section>
+
+        <section class="organizer-form-section" id="eventFormSection" hidden>
+            <h2 id="eventFormTitle">Create a New Event</h2>
+
+            <form id="organizerEventForm">
+                <input type="hidden" id="editingEventId">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="eventTitle">Event Name</label>
+                        <input type="text" id="eventTitle" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventCategory">Category</label>
+                        <select id="eventCategory" required>
+                            <option value="">Select category</option>
+                            <option value="Technical">Technical</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Music">Music</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventDate">Event Date</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventTime">Start Time</label>
+                        <input type="time" id="eventTime" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventVenue">Venue</label>
+                        <input type="text" id="eventVenue" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventCapacity">Maximum Participants</label>
+                        <input type="number" id="eventCapacity" min="1" value="100" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDescription">Event Description</label>
+                    <textarea id="eventDescription" rows="4" required></textarea>
+                </div>
+
+                <div class="organizer-form-actions">
+                    <button type="submit" class="btn btn-primary" id="saveEventButton">
+                        Save Event
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" id="cancelEventForm">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="organizer-events-section">
+            <div class="organizer-section-heading">
+                <h2>Manage Your Events</h2>
+
+                <input
+                    type="search"
+                    id="organizerSearch"
+                    placeholder="Search your events..."
+                    aria-label="Search events"
+                >
+            </div>
+
+            <div id="organizerEventsList" class="organizer-events-list"></div>
+        </section>
+
+        <section class="organizer-registrations-section">
+            <h2>Event Registrations</h2>
+            <p>Choose an event to see its registered participants.</p>
+
+            <div class="form-group">
+                <label for="registrationEventSelect">Select Event</label>
+                <select id="registrationEventSelect">
+                    <option value="">Select an event</option>
+                </select>
+            </div>
+
+            <div id="organizerRegistrationList"></div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Eventora. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/organizer.js" defer></script>
+</body>
+</html>
+
