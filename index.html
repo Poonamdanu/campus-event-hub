@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eventora | Your Campus, Your Events</title>
+
+    <meta name="description"
+          content="Discover campus events, find teammates, manage registrations and connect with your campus community using Eventora.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="pages/events.html">Events</a>
+            <a href="#dashboard-shortcuts">Dashboards</a>
+            <a href="pages/about.html">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="pages/login.html" class="btn btn-outline">Login</a>
+            <a href="pages/signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    YOUR CAMPUS, YOUR COMMUNITY
+                </span>
+
+                <h1>
+                    Never Miss a<br>
+                    <span>Campus Event.</span>
+                </h1>
+
+                <p>
+                    Discover exciting events, find your team,
+                    explore new opportunities and make every
+                    campus moment count.
+                </p>
+
+                <form class="hero-search" id="homeSearchForm">
+
+                    <input
+                        type="search"
+                        id="homeSearch"
+                        placeholder="Search events, workshops, fests..."
+                        aria-label="Search events"
+                    >
+
+                    <button type="submit" aria-label="Search events">
+                        🔍
+                    </button>
+
+                </form>
+
+                <div class="hero-actions">
+
+                    <a href="pages/events.html" class="btn btn-primary">
+                        Explore Events →
+                    </a>
+
+                    <a href="#dashboard-shortcuts" class="btn btn-outline">
+                        Explore Dashboards
+                    </a>
+
+                </div>
+
+                <div class="hero-highlights">
+                    <span>✦ Discover Events</span>
+                    <span>✦ Find Teammates</span>
+                    <span>✦ Stay Updated</span>
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="hero-image-card">
+
+                    <div class="hero-image-overlay">
+
+                        <span class="floating-icon">✦</span>
+
+                        <p class="image-label">
+                            WELCOME TO EVENTORA
+                        </p>
+
+                        <h2>
+                            Explore.<br>
+                            Participate.<br>
+                            Grow.
+                        </h2>
+
+                        <p class="image-description">
+                            Your next campus memory starts here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Five Dashboard Shortcuts -->
+        <section class="section dashboard-section"
+                 id="dashboard-shortcuts">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">YOUR EVENTORA SPACE</span>
+
+                    <h2>
+                        Everything You Need,
+                        <span>In One Place.</span>
+                    </h2>
+
+                    <p>
+                        Choose a section to explore its features.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <!-- 1. Student Dashboard -->
+                <a href="pages/dashboard.html"
+                   class="dashboard-card student-card">
+
+                    <div class="dashboard-icon">🎓</div>
+
+                    <span class="card-number">01</span>
+
+                    <h3>Student Dashboard</h3>
+
+                    <p>
+                        Manage your registrations, event reminders,
+                        certificates, achievements and recommendations.
+                    </p>
+
+                    <span class="card-link">
+                        Explore Student Space →
+                    </span>
+
+                </a>
+
+
+                <!-- 2. Events Explorer -->
+                <a href="pages/events.html"
+                   class="dashboard-card explorer-card">
+
+                    <div class="dashboard-icon">🔎</div>
+
+                    <span class="card-number">02</span>
+
+                    <h3>Events Explorer</h3>
+
+                    <p>
+                        Browse campus events, find free-time activities,
+                        check event details and discover opportunities.
+                    </p>
+
+                    <span class="card-link">
+                        Discover Events →
+                    </span>
+
+                </a>
+
+
+                <!-- 3. Organizer Dashboard -->
+                <a href="pages/organizer-dashboard.html"
+                   class="dashboard-card organizer-card">
+
+                    <div class="dashboard-icon">📅</div>
+
+                    <span class="card-number">03</span>
+
+                    <h3>Organizer Dashboard</h3>
+
+                    <p>
+                        Create events, manage registrations,
+                        view participants and track attendance.
+                    </p>
+
+                    <span class="card-link">
+                        Manage Events →
+                    </span>
+
+                </a>
+
+
+                <!-- 4. Admin Dashboard -->
+                <a href="pages/admin-dashboard.html"
+                   class="dashboard-card admin-card">
+
+                    <div class="dashboard-icon">🛡️</div>
+
+                    <span class="card-number">04</span>
+
+                    <h3>Admin Dashboard</h3>
+
+                    <p>
+                        Review event submissions, manage users,
+                        approve events and monitor complaints.
+                    </p>
+
+                    <span class="card-link">
+                        Open Admin Panel →
+                    </span>
+
+                </a>
+
+
+                <!-- 5. Feedback and Support -->
+                <a href="pages/feedback.html"
+                   class="dashboard-card feedback-card">
+
+                    <div class="dashboard-icon">💬</div>
+
+                    <span class="card-number">05</span>
+
+                    <h3>Feedback &amp; Support</h3>
+
+                    <p>
+                        Rate events, write reviews, submit complaints
+                        and follow the status of support requests.
+                    </p>
+
+                    <span class="card-link">
+                        Share Feedback →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Event Categories -->
+        <section class="section categories-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">FIND YOUR INTEREST</span>
+
+                    <h2>
+                        Explore Event <span>Categories.</span>
+                    </h2>
+
+                    <p>
+                        Find something exciting happening on campus.
+                    </p>
+                </div>
+
+                <a href="pages/events.html" class="text-link">
+                    View All Events →
+                </a>
+
+            </div>
+
+
+            <div class="category-grid">
+
+                <a href="pages/events.html?category=Technical"
+                   class="category-card">
+                    <span>💻</span>
+                    <h3>Technical</h3>
+                </a>
+
+                <a href="pages/events.html?category=Cultural"
+                   class="category-card">
+                    <span>🎭</span>
+                    <h3>Cultural</h3>
+                </a>
+
+                <a href="pages/events.html?category=Sports"
+                   class="category-card">
+                    <span>⚽</span>
+                    <h3>Sports</h3>
+                </a>
+
+                <a href="pages/events.html?category=Workshop"
+                   class="category-card">
+                    <span>🧠</span>
+                    <h3>Workshops</h3>
+                </a>
+
+                <a href="pages/events.html?category=Music"
+                   class="category-card">
+                    <span>🎵</span>
+                    <h3>Music</h3>
+                </a>
+
+                <a href="pages/events.html?category=Other"
+                   class="category-card">
+                    <span>✨</span>
+                    <h3>Others</h3>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Upcoming Events -->
+        <section class="section events-section"
+                 id="upcoming-events">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">WHAT'S HAPPENING</span>
+
+                    <h2>
+                        Upcoming <span>Events.</span>
+                    </h2>
+
+                    <p>
+                        Find your next opportunity to learn and connect.
+                    </p>
+                </div>
+
+                <a href="pages/events.html" class="text-link">
+                    View All →
+                </a>
+
+            </div>
+
+
+            <div class="events-grid" id="homeEventsGrid">
+
+                <!-- Event 1 -->
+                <article class="event-card">
+
+                    <div class="event-art event-art-blue">
+                        <span class="event-emoji">💻</span>
+                        <span class="event-tag">Technical</span>
+                    </div>
+
+                    <div class="event-info">
+
+                        <h3>CodeSprint Hackathon</h3>
+
+                        <p>📅 12 November 2026</p>
+                        <p>📍 Main Auditorium</p>
+
+                        <a href="pages/events.html"
+                           class="btn btn-primary btn-small">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Event 2 -->
+                <article class="event-card">
+
+                    <div class="event-art event-art-pink">
+                        <span class="event-emoji">🎭</span>
+                        <span class="event-tag">Cultural</span>
+                    </div>
+
+                    <div class="event-info">
+
+                        <h3>Cultural Fest</h3>
+
+                        <p>📅 15 November 2026</p>
+                        <p>📍 Open Ground</p>
+
+                        <a href="pages/events.html"
+                           class="btn btn-primary btn-small">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Event 3 -->
+                <article class="event-card">
+
+                    <div class="event-art event-art-orange">
+                        <span class="event-emoji">🤖</span>
+                        <span class="event-tag">Workshop</span>
+                    </div>
+
+                    <div class="event-info">
+
+                        <h3>AI Innovation Workshop</h3>
+
+                        <p>📅 18 November 2026</p>
+                        <p>📍 Computer Lab</p>
+
+                        <a href="pages/events.html"
+                           class="btn btn-primary btn-small">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p class="demo-note">
+                These are sample events for the prototype.
+                Replace them with verified campus event information.
+            </p>
+
+        </section>
+
+
+        <!-- Smart Event Features -->
+        <section class="section smart-features-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">MORE THAN EVENT LISTINGS</span>
+
+                    <h2>
+                        Discover Eventora's <span>Smart Features.</span>
+                    </h2>
+
+                    <p>
+                        Find events that fit your schedule and goals.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="smart-features-grid">
+
+                <a href="pages/free-time-finder.html"
+                   class="smart-feature-card">
+                    <span>⏰</span>
+                    <h3>Free-Time Event Finder</h3>
+                    <p>Discover events that fit your available time.</p>
+                </a>
+
+                <a href="pages/team-finder.html"
+                   class="smart-feature-card">
+                    <span>🤝</span>
+                    <h3>Team Member Finder</h3>
+                    <p>Find teammates for hackathons and group activities.</p>
+                </a>
+
+                <a href="pages/events.html"
+                   class="smart-feature-card">
+                    <span>⚠️</span>
+                    <h3>Date Conflict Alerts</h3>
+                    <p>Identify schedule clashes between registered events.</p>
+                </a>
+
+                <a href="pages/events.html"
+                   class="smart-feature-card">
+                    <span>📍</span>
+                    <h3>Smart Campus Event Radar</h3>
+                    <p>Explore campus events through a location-based view.</p>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+
+            <span class="eyebrow">
+                YOUR CAMPUS JOURNEY STARTS HERE
+            </span>
+
+            <h2>
+                Be Part of Something <span>Amazing.</span>
+            </h2>
+
+            <p>
+                Discover opportunities, meet your team
+                and create unforgettable campus memories.
+            </p>
+
+            <a href="pages/signup.html" class="btn btn-primary">
+                Join Eventora →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Eventora</span>
+        </a>
+
+        <p>Discover. Participate. Connect.</p>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="pages/events.html">Events</a>
+            <a href="#dashboard-shortcuts">Dashboards</a>
+            <a href="pages/about.html">About</a>
+            <a href="pages/feedback.html">Support</a>
+        </div>
+
+        <p class="copyright">
+            © 2026 Eventora. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
