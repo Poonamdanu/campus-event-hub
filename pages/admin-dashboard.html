@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Eventora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="admin-page">
+
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            ✦ Eventora
+        </a>
+
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="dashboard.html">Student Dashboard</a>
+            <a href="organizer-dashboard.html">Organizer</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+    </header>
+
+
+    <main class="admin-container">
+
+        <!-- Dashboard Heading -->
+        <section class="admin-welcome">
+            <div>
+                <span class="admin-label">ADMINISTRATION</span>
+
+                <h1>Admin Dashboard</h1>
+
+                <p>
+                    Manage campus events, monitor registrations,
+                    and keep Eventora running smoothly.
+                </p>
+            </div>
+
+            <div class="admin-status">
+                <span class="status-dot"></span>
+                Admin Control Center
+            </div>
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="admin-stats">
+
+            <article class="admin-stat-card">
+                <div class="admin-stat-icon">🎪</div>
+                <p>Total Events</p>
+                <h2 id="adminTotalEvents">0</h2>
+                <span>Events in this browser</span>
+            </article>
+
+            <article class="admin-stat-card">
+                <div class="admin-stat-icon">👥</div>
+                <p>Total Registrations</p>
+                <h2 id="adminTotalRegistrations">0</h2>
+                <span>Recorded registrations</span>
+            </article>
+
+            <article class="admin-stat-card">
+                <div class="admin-stat-icon">⏳</div>
+                <p>Pending Approvals</p>
+                <h2 id="adminPendingEvents">0</h2>
+                <span>Events awaiting review</span>
+            </article>
+
+            <article class="admin-stat-card">
+                <div class="admin-stat-icon">💬</div>
+                <p>Feedback Received</p>
+                <h2 id="adminFeedbackCount">0</h2>
+                <span>Submitted feedback entries</span>
+            </article>
+
+        </section>
+
+
+        <!-- Event Management -->
+        <section class="admin-section">
+
+            <div class="admin-section-heading">
+                <div>
+                    <span class="admin-label">PLATFORM MANAGEMENT</span>
+                    <h2>Event Management</h2>
+                    <p>Review and manage events submitted by organizers.</p>
+                </div>
+
+                <input
+                    type="search"
+                    id="adminEventSearch"
+                    placeholder="Search events..."
+                    aria-label="Search events"
+                >
+            </div>
+
+            <div class="admin-filter-buttons">
+                <button type="button" class="admin-filter active" data-status="all">
+                    All Events
+                </button>
+
+                <button type="button" class="admin-filter" data-status="pending">
+                    Pending
+                </button>
+
+                <button type="button" class="admin-filter" data-status="approved">
+                    Approved
+                </button>
+
+                <button type="button" class="admin-filter" data-status="rejected">
+                    Rejected
+                </button>
+            </div>
+
+            <div id="adminEventsList" class="admin-events-list"></div>
+
+        </section>
+
+
+        <!-- Feedback Management -->
+        <section class="admin-section">
+
+            <div class="admin-section-heading">
+                <div>
+                    <span class="admin-label">STUDENT VOICE</span>
+                    <h2>Recent Feedback</h2>
+                    <p>Review suggestions and complaints submitted by students.</p>
+                </div>
+
+                <a href="feedback.html" class="admin-outline-button">
+                    Open Feedback Center →
+                </a>
+            </div>
+
+            <div id="adminFeedbackList" class="admin-feedback-list"></div>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section class="admin-section">
+
+            <div class="admin-section-heading">
+                <div>
+                    <span class="admin-label">QUICK ACCESS</span>
+                    <h2>Management Tools</h2>
+                </div>
+            </div>
+
+            <div class="admin-tools-grid">
+
+                <a href="events.html" class="admin-tool-card">
+                    <span>🎪</span>
+                    <h3>Explore Events</h3>
+                    <p>View campus events.</p>
+                </a>
+
+                <a href="organizer-dashboard.html" class="admin-tool-card">
+                    <span>🛠️</span>
+                    <h3>Organizer Dashboard</h3>
+                    <p>Manage event creation.</p>
+                </a>
+
+                <a href="feedback.html" class="admin-tool-card">
+                    <span>💬</span>
+                    <h3>Feedback Center</h3>
+                    <p>Review complaints and suggestions.</p>
+                </a>
+
+                <a href="../index.html" class="admin-tool-card">
+                    <span>🏠</span>
+                    <h3>Homepage</h3>
+                    <p>Return to Eventora home.</p>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <p>© 2026 Eventora. All rights reserved.</p>
+    </footer>
+
+
+    <script src="../js/admin.js" defer></script>
+
+</body>
+</html>
+
